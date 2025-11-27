@@ -1,4 +1,4 @@
-/* Reset */
+/* Reset dhe font */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,75 +6,70 @@
     font-family: 'Arial', sans-serif;
 }
 
-/* Header / Navbar */
+/* HEADER / NAVBAR */
 .site-header {
-    background: white;
+    background: #fff;
     border-bottom: 1px solid #ddd;
     position: sticky;
     top: 0;
     z-index: 100;
 }
 
-/* Navbar */
 .navbar {
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 50px; /* kompakt, nuk zë shumë hapësirë */
+    padding: 10px 50px;
+    height: 65px;
     background-color: #ffffff;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-    height: 70px; /* lartësi e përshtatshme */
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-/* Logo */
 .left-side .logo {
-    width: 50px; /* pak më e vogël për navbar kompakt */
+    width: 50px;
     height: auto;
 }
 
-/* Nav links */
 .nav-links {
     list-style: none;
     display: flex;
-    gap: 20px;
-    align-items: center;
+    gap: 18px;
 }
 
 .nav-links a {
     text-decoration: none;
-    color: #333;
+    color: #222;
+    font-size: 14px;
     font-weight: 500;
-    font-size: 14px; /* më e moderuar */
     transition: color 0.3s, transform 0.3s;
 }
 
 .nav-links a:hover {
-    color: grey;
+    color: #ffce00;
     transform: scale(1.05);
 }
 
-/* Search box */
 .search-box input {
     padding: 6px 12px;
     border: 1px solid #ccc;
-    border-radius: 25px;
-    font-size: 14px;
-    width: 180px;
-    transition: all 0.3s;
+    border-radius: 20px;
+    font-size: 13px;
+    width: 160px;
+    transition: 0.3s;
 }
 
 .search-box input:focus {
     outline: none;
-    border-color: grey;
-    box-shadow: 0 0 6px rgba(133, 132, 132, 0.5);
+    border-color: #ffce00;
+    box-shadow: 0 0 6px rgba(255,206,0,0.5);
 }
 
-/* Hero section */
+/* HERO SECTION */
 .hero-full {
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 85vh;
     overflow: hidden;
 }
 
@@ -85,7 +80,6 @@
     filter: brightness(60%);
 }
 
-/* Hero center content */
 .hero-center {
     position: absolute;
     top: 50%;
@@ -93,23 +87,25 @@
     transform: translate(-50%, -50%);
     text-align: center;
     color: #fff;
+    max-width: 90%;
 }
 
 .hero-center h1 {
-    font-size: 38px; /* më e moderuar */
+    font-size: 32px;
     font-weight: 700;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    letter-spacing: 1px;
+    line-height: 1.2;
     text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
 }
 
-/* Hero button */
 .hero-button .btn-view-cars {
     display: inline-block;
-    padding: 15px 35px;
+    padding: 14px 35px;
     font-size: 16px;
     font-weight: bold;
-    color: #222;
-    background: grey;
+    color: #fff;
+    background: #ffce00;
     border-radius: 50px;
     text-decoration: none;
     box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -117,17 +113,75 @@
 }
 
 .hero-button .btn-view-cars:hover {
-    box-shadow: 0 0 6px rgba(133, 132, 132, 0.5);
+    background: #e6b800;
     transform: scale(1.05);
 }
 
-/* Responsive */
+/* FOOTER */
+.site-footer {
+    background: #111;
+    color: #ccc;
+    padding: 50px 20px 20px 20px;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-col h3,
+.footer-col h4 {
+    color: #ffce00;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.footer-col p {
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.footer-col ul li {
+    margin: 7px 0;
+}
+
+.footer-col ul li a {
+    color: #ccc;
+    font-size: 14px;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-col ul li a:hover {
+    color: #ffce00;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-bottom p {
+    font-size: 14px;
+    color: #888;
+}
+
+/* ===== Responsive ===== */
 @media (max-width: 1024px) {
     .navbar {
         padding: 10px 30px;
     }
     .hero-center h1 {
-        font-size: 32px;
+        font-size: 28px;
     }
     .hero-button .btn-view-cars {
         padding: 12px 30px;
@@ -143,16 +197,21 @@
         height: auto;
     }
     .nav-links {
-        gap: 15px;
+        gap: 12px;
     }
     .search-box input {
         width: 140px;
     }
     .hero-center h1 {
-        font-size: 28px;
+        font-size: 24px;
+        margin-bottom: 20px;
     }
     .hero-button .btn-view-cars {
         padding: 10px 25px;
         font-size: 14px;
+    }
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
     }
 }
