@@ -1,64 +1,51 @@
 <?php
-require_once "/config.php";
-
-$stmt = $pdo->query("SELECT id, title, short_desc, slug FROM services ORDER BY created_at DESC LIMIT 3");
-$services = $stmt->fetchAll(PDO::FETCH_ASSOC);
+require_once __DIR__ . '/../config.php';
 ?>
 <!doctype html>
 <html lang="sq">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rent-a-Car - Home</title>
-<link rel="stylesheet" href="assets/css/styles.css">
-</head>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Rent-a-Car</title>
+        <link rel="stylesheet" href="../assets/css/style.css">
+    </head>
 <body>
 
-<header class="site-header">
-    <div class="container">
-        <h1><a href="index.php">Rent-a-Car</a></h1>
-        <nav>
-            <a href="index.php">Home</a>
-            <a href="about.php">Rreth nesh</a>
-            <a href="services.php">Shërbimet</a>
-            <a href="contact.php">Kontakti</a>
+    <header class="site-header">
+        <div class="container header-flex">
+            <nav class="navbar">
+                <div class="left-side">
+                    <img src="../assets/images/carsoe.png" class="logo" alt="Logo">
+                </div>
 
-            <?php if(!isset($_SESSION['user_id'])): ?>
-                <a href="login.php">Hyr</a>
-                <a href="register.php">Regjistrohu</a>
-            <?php else: ?>
-                <span>Mirësevjen, <?= htmlspecialchars($_SESSION['user_name']) ?></span>
-                <a href="logout.php">Dil</a>
-            <?php endif; ?>
-        </nav>
-    </div>
-</header>
+                <ul class="nav-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Cars</a></li>
+                    <li><a href="./aboutus.php">About</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
 
-<main class="container">
+                <div class="search-box">
+                    <input type="text" placeholder="Search...">
+                </div>
+            </nav>
+        </div>
+    </header>
 
-<section class="hero">
-    <h2>Makina të besueshme. Çmime të mira.</h2>
-    <p>Merr makinë me qira shpejt, lehtë dhe me çmime konkurruese.</p>
-</section>
+    <!-- FOTO E MADHE -->
+    <section class="hero-full">
+        <img src="../assets/images/foto.jpg" class="hero-img" alt="Car">
 
-<section>
-<h3>Shërbimet tona</h3>
-<div class="cards">
-<?php foreach($services as $s): ?>
-<article class="card">
-    <h4><?= htmlspecialchars($s['title']) ?></h4>
-    <p><?= htmlspecialchars($s['short_desc']) ?></p>
-    <a class="btn" href="service_detail.php?slug=<?= urlencode($s['slug']) ?>">Detaje</a>
-</article>
-<?php endforeach; ?>
-</div>
-</section>
+        <div class="hero-center">
+            <h1>Gjej makinën tënde ideale</h1>
 
-</main>
+            <div class="hero-button">
+                <a href="cars.html" class="btn-view-cars">Shiko të gjitha makinat</a>
+            </div>
+        </div>
+    </section>
 
-<footer class="site-footer container">
-    <p>© <?= date('Y') ?> Rent-a-Car. Të gjitha të drejtat.</p>
-</footer>
 
 </body>
 </html>
+

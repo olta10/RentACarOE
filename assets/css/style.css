@@ -1,0 +1,158 @@
+/* Reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Header / Navbar */
+.site-header {
+    background: white;
+    border-bottom: 1px solid #ddd;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* Navbar */
+.navbar {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px; /* kompakt, nuk zë shumë hapësirë */
+    background-color: #ffffff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    height: 70px; /* lartësi e përshtatshme */
+}
+
+/* Logo */
+.left-side .logo {
+    width: 50px; /* pak më e vogël për navbar kompakt */
+    height: auto;
+}
+
+/* Nav links */
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    font-size: 14px; /* më e moderuar */
+    transition: color 0.3s, transform 0.3s;
+}
+
+.nav-links a:hover {
+    color: grey;
+    transform: scale(1.05);
+}
+
+/* Search box */
+.search-box input {
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    font-size: 14px;
+    width: 180px;
+    transition: all 0.3s;
+}
+
+.search-box input:focus {
+    outline: none;
+    border-color: grey;
+    box-shadow: 0 0 6px rgba(133, 132, 132, 0.5);
+}
+
+/* Hero section */
+.hero-full {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.hero-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(60%);
+}
+
+/* Hero center content */
+.hero-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+}
+
+.hero-center h1 {
+    font-size: 38px; /* më e moderuar */
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+}
+
+/* Hero button */
+.hero-button .btn-view-cars {
+    display: inline-block;
+    padding: 15px 35px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #222;
+    background: grey;
+    border-radius: 50px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    transition: all 0.3s;
+}
+
+.hero-button .btn-view-cars:hover {
+    box-shadow: 0 0 6px rgba(133, 132, 132, 0.5);
+    transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 10px 30px;
+    }
+    .hero-center h1 {
+        font-size: 32px;
+    }
+    .hero-button .btn-view-cars {
+        padding: 12px 30px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 20px;
+        height: auto;
+    }
+    .nav-links {
+        gap: 15px;
+    }
+    .search-box input {
+        width: 140px;
+    }
+    .hero-center h1 {
+        font-size: 28px;
+    }
+    .hero-button .btn-view-cars {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+}
