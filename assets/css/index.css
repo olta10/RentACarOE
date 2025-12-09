@@ -1,4 +1,3 @@
-/* ---------------- RESET & FONTS ---------------- */
 * {
     margin: 0;
     padding: 0;
@@ -480,13 +479,13 @@
   border: 1px solid #ddd;
   box-shadow: 0 6px 20px rgba(0,0,0,0.06);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  width: 350px; /* fotot më të mëdha */
+  width: 350px;
   cursor: pointer;
 }
 
 .car-card img {
   width: 100%;
-  height: 200px; /* fotot më të mëdha */
+  height: 200px;
   object-fit: cover;
   transition: transform 0.3s ease;
 }
@@ -658,218 +657,213 @@ button:hover {
     font-size: 14px;
 }
 
-/* ---------------- RESPONSIVE ---------------- */
-
 /* ---------------- MOBILE (<=767px) ---------------- */
 @media (max-width: 767px) {
-    /* Navbar */
+    /* NAVBAR */
     .navbar {
         flex-direction: column;
+        align-items: center;
         gap: 10px;
-        padding: 10px 15px;
+        padding: 10px 20px;
+        height: auto;
     }
+
     .nav-links {
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
         text-align: center;
     }
-    .nav-links a {
-        font-size: 13px;
-    }
+
     .logo {
         width: 40px;
     }
 
-    /* Hero */
-    .hero-full {
-        height: 60vh;
-    }
     .hero-center h1 {
         font-size: 24px;
-        margin-bottom: 15px;
     }
+
     .btn-view-cars {
-        padding: 12px 28px;
+        padding: 12px 25px;
         font-size: 14px;
     }
 
-    /* About Us */
     .about-container {
         flex-direction: column;
-        gap: 20px;
         text-align: center;
+        gap: 25px;
     }
+
     .about-text h2 {
-        font-size: 22px;
+        font-size: 24px;
     }
+
     .about-text p {
         font-size: 14px;
     }
-    .about-btn {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-    .about-image img {
-        max-width: 90%;
-    }
 
-    /* Services */
     .services-grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
-    .service-card h3 {
+
+    .service-card {
+        max-width: 100%;
+    }
+
+    .service-details {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .main-image img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .cars-grid,
+    .gallery-grid,
+    .car-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .car-card,
+    .gallery-grid img {
+        max-width: 100%;
+    }
+
+    .car-image img {
+        height: auto;
+    }
+
+    .car-card h3 {
         font-size: 18px;
     }
-    .service-card p {
-        font-size: 13px;
-    }
 
-    /* Cars */
-    .cars-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    .car-card {
-        max-width: 90%;
-    }
-    .car-image img {
-        height: 180px;
-    }
-    .car-content h3 {
-        font-size: 20px;
-    }
-    .car-content p {
+    .car-card p {
         font-size: 14px;
     }
-    .car-content .btn-details {
-        padding: 8px 20px;
-        font-size: 13px;
+
+    .car-header h2 {
+        font-size: 28px;
     }
 
-    /* Gallery */
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    .gallery-grid img {
-        height: 160px;
+    .car-header p {
+        font-size: 15px;
+        max-width: 90%;
     }
 
-    /* Footer */
+    .auth-container {
+        max-width: 90%;
+        padding: 30px 20px;
+    }
+
     .footer-container {
         flex-direction: column;
-        gap: 20px;
         text-align: center;
+        gap: 20px;
     }
 }
 
 /* ---------------- TABLET SMALL (768px - 990px) ---------------- */
 @media (min-width: 768px) and (max-width: 990px) {
-    /* Navbar */
     .navbar {
-        flex-direction: row;
-        justify-content: space-between;
         padding: 10px 30px;
     }
-    .nav-links {
-        gap: 15px;
-    }
+
     .logo {
         width: 45px;
     }
 
-    /* Hero */
-    .hero-full {
-        height: 70vh;
-    }
-    .hero-center h1 {
-        font-size: 28px;
-    }
-    .btn-view-cars {
-        padding: 13px 30px;
-        font-size: 15px;
-    }
-
-    /* About Us */
-    .about-container {
-        flex-direction: row;
-        gap: 30px;
-    }
-    .about-text h2 {
-        font-size: 24px;
-    }
-    .about-text p {
-        font-size: 15px;
-    }
-
-    /* Services */
-    .services-grid {
+    .services-grid,
+    .cars-grid,
+    .gallery-grid,
+    .car-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 25px;
     }
 
-    /* Cars */
-    .cars-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-    }
-    .car-image img {
-        height: 200px;
+    .main-image img {
+        max-width: 100%;
+        height: auto;
     }
 
-    /* Gallery */
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+    .about-container {
+        gap: 30px;
+    }
+
+    .car-card h3 {
+        font-size: 19px;
+    }
+
+    .car-header h2 {
+        font-size: 32px;
+    }
+
+    .car-header p {
+        font-size: 16px;
+        max-width: 95%;
     }
 }
 
 /* ---------------- TABLET BIG (991px - 1040px) ---------------- */
 @media (min-width: 991px) and (max-width: 1040px) {
-    /* Navbar */
     .navbar {
         padding: 10px 35px;
     }
-    .nav-links a {
-        font-size: 14px;
+
+    .logo {
+        width: 50px;
     }
 
-    /* Hero */
-    .hero-full {
-        height: 75vh;
-    }
-    .hero-center h1 {
-        font-size: 30px;
-    }
-    .btn-view-cars {
-        padding: 13px 32px;
-        font-size: 15px;
-    }
-
-    /* About Us */
-    .about-container {
-        gap: 35px;
-    }
-    .about-text h2 {
-        font-size: 26px;
-    }
-
-    /* Services */
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .services-grid,
+    .cars-grid,
+    .gallery-grid,
+    .car-grid {
+        grid-template-columns: repeat(3, 1fr);
         gap: 30px;
     }
 
-    /* Cars */
-    .cars-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .about-container {
         gap: 35px;
     }
 
-    /* Gallery */
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
+    .hero-center h1 {
+        font-size: 28px;
+    }
+
+    .btn-view-cars {
+        padding: 14px 30px;
+        font-size: 15px;
+    }
+
+    .car-header h2 {
+        font-size: 36px;
+    }
+
+    .car-header p {
+        font-size: 17px;
+    }
+}
+
+/* ---------------- DESKTOP (>1040px) ---------------- */
+@media (min-width: 1041px) {
+    .cars-grid,
+    .gallery-grid,
+    .car-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+    }
+
+    .car-card {
+        width: 350px;
+    }
+
+    .car-header h2 {
+        font-size: 40px;
+    }
+
+    .car-header p {
+        font-size: 18px;
     }
 }

@@ -33,18 +33,30 @@
             <img src="../assets/images/carsoe.png" alt="Logo">
         </div>
         <div class="auth-container">
-            <h2>Login</h2>
-            <form id="loginForm">
+            <h2>Register</h2>
+            <form id="registerForm">
                 <div class="form-group">
-                    <label for="loginEmail">Email</label>
-                    <input type="email" id="loginEmail" name="email" required placeholder="Enter your email">
+                    <label for="regFullname">Full Name</label>
+                    <input type="text" id="regFullname" name="fullname" required placeholder="Enter your full name">
                 </div>
+
                 <div class="form-group">
-                    <label for="loginPassword">Password</label>
-                    <input type="password" id="loginPassword" name="password" required placeholder="Enter your password">
+                    <label for="regEmail">Email</label>
+                    <input type="email" id="regEmail" name="email" required placeholder="Enter your email">
                 </div>
-                <button type="submit">Login</button>
-                <p>Don't have an account? <a href="register.html">Register</a></p>
+
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" name="password" required placeholder="Enter your password">
+                </div>
+
+                <div class="form-group">
+                    <label for="regConfirmPassword">Confirm Password</label>
+                    <input type="password" id="regConfirmPassword" name="confirmPassword" required placeholder="Confirm your password">
+                </div>
+
+                <button type="submit">Register</button>
+                <p>Already have an account? <a href="login.html">Login</a></p>
             </form>
         </div>
     </section>
@@ -72,6 +84,7 @@
                 <p>Email: info@rentacar.com</p>
                 <p>Tel: +383 44 123 456</p>
             </div>
+
         </div>
 
         <div class="footer-bottom">
