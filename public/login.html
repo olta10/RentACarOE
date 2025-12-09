@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Cars</title>
+    <link rel="stylesheet" href="../assets/css/index.css">
+</head>
+<body>
+
+<header class="site-header">
+    <div class="container header-flex">
+        <nav class="navbar">
+            <div class="left-side">
+                <a href="./index.html">
+                    <img src="../assets/images/carsoe.png" class="logo" alt="Logo">
+                </a>
+            </div>
+
+            <ul class="nav-links" id="nav-links">
+                <li><a href="./index.html">Home</a></li>
+                <li><a href="./aboutus.html">About</a></li>
+                <li><a href="./cars.html" class="active">Cars</a></li>
+                <li><a href="./services.html">Services</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="auth-section">
+      <div class="auth-logo">
+        <img src="../assets/images/carsoe.png" alt="Logo">
+    </div>
+  <div class="auth-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required placeholder="Enter your password">
+      </div>
+      <button type="submit">Login</button>
+      <p>Don't have an account? <a href="register.html">Register</a></p>
+    </form>
+  </div>
+</section>
+
+<script>
+document.getElementById('loginForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value.trim();
+    
+    if(email === "" || password === ""){
+        alert("Please fill in all fields");
+        return;
+    }
+    
+     alert("Login successful! Email: " + email);
+});
+</script>
+
+
+    <footer class="site-footer">
+        <div class="footer-container">
+
+            <div class="footer-col">
+                <h3>Rent-a-Car</h3>
+                <p>Zgjedhja ideale për makinat më të mira me çmimet më të volitshme.</p>
+            </div>
+
+            <div class="footer-col">
+                <h4>Faqet</h4>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="./aboutus.html">About Us</a></li>
+                    <li><a href="./cars.html">Cars</a></li>
+                    <li><a href="./contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Na kontaktoni</h4>
+                <p>Email: info@rentacar.com</p>
+                <p>Tel: +383 44 123 456</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Rent-a-Car. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+</body>
+</html>
