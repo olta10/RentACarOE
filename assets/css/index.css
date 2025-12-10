@@ -342,6 +342,7 @@
     padding: 80px 20px;
     text-align: center;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9f9f9;
 }
 
 .section-title {
@@ -512,13 +513,13 @@
 }
 
 /* ---------------- LOG IN ---------------- */
-/* Sekcioni Login */
 .auth-section {
     display: flex;
-    justify-content: center; /* qendër horizontalisht */
-    align-items: center;     /* qendër vertikalisht */
-    flex-direction: column;/* llogarit qendrën: 100vh minus header + footer */
+    justify-content: center; 
+    align-items: center;    
+    flex-direction: column;
     padding: 20px;
+    background: #f9f9f9;
 }
 
 .auth-logo img {
