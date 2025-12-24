@@ -11,16 +11,16 @@
     
     <nav class="navbar">
         <div class="left-side">
-            <a href="./index.html">
+            <a href="./index.php">
                 <img src="../assets/images/carsoe.png" class="logo" alt="Logo">
             </a>
         </div>
 
         <ul class="nav-links" id="nav-links">
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./aboutus.html" class="active">About</a></li>
-            <li><a href="./cars.html">Cars</a></li>
-            <li><a href="./services.html">Services</a></li>
+            <li><a href="./index.php">Home</a></li>
+            <li><a href="./aboutus.php" class="active">About</a></li>
+            <li><a href="./cars.php">Cars</a></li>
+            <li><a href="./services.php">Services</a></li>
         </ul>
 
         <div class="hamburger" id="hamburger">
@@ -47,7 +47,7 @@
                     reasonable prices, and high service standards.
                 </p>
 
-                <a href="../public/cars.html" class="about-btn">View Our Cars</a>
+                <a href="../public/cars.php" class="about-btn">View Our Cars</a>
             </div>
 
             <div class="about-image">
@@ -68,10 +68,10 @@
             <div class="footer-col">
                 <h4>Pages</h4>
                 <ul>
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="./aboutus.html">About Us</a></li>
-                    <li><a href="./cars.html">Cars</a></li>
-                    <li><a href="./services.html">Services</a></li>
+                    <li><a href="./index.php">Home</a></li>
+                    <li><a href="./aboutus.php">About Us</a></li>
+                    <li><a href="./cars.php">Cars</a></li>
+                    <li><a href="./services.php">Services</a></li>
                 </ul>
             </div>
 

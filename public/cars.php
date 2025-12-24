@@ -11,16 +11,16 @@
 
     <nav class="navbar">
         <div class="left-side">
-            <a href="./index.html">
+            <a href="./index.php">
                 <img src="../assets/images/carsoe.png" class="logo" alt="Logo">
             </a>
         </div>
 
         <ul class="nav-links" id="nav-links">
-            <li><a href="./index.html">Home</a></li>
-            <li><a href="./aboutus.html">About</a></li>
-            <li><a href="./cars.html" class="active">Cars</a></li>
-            <li><a href="./services.html">Services</a></li>
+            <li><a href="./index.php">Home</a></li>
+            <li><a href="./aboutus.php">About</a></li>
+            <li><a href="./cars.php" class="active">Cars</a></li>
+            <li><a href="./services.php">Services</a></li>
         </ul>
 
         <div class="hamburger" id="hamburger">
@@ -35,7 +35,7 @@
             <h1 class="section-title">Explore Our Top Car Brands</h1>
             <div class="cars-grid">
                 
-                <a href="./details.html" class="car-card">
+                <a href="./details.php" class="car-card">
                     <div class="car-image">
                         <img src="../assets/images/mercedes.jpg" alt="Mercedes">
                     </div>
@@ -45,7 +45,7 @@
                     </div>
                 </a>
 
-                <a href="./details.html" class="car-card">
+                <a href="./details.php" class="car-card">
                     <div class="car-image">
                         <img src="../assets/images/bmw.jpg" alt="BMW">
                     </div>
@@ -55,7 +55,7 @@
                     </div>
                 </a>
 
-                <a href="./details.html" class="car-card">
+                <a href="./details.php" class="car-card">
                     <div class="car-image">
                         <img src="../assets/images/audi.jpg" alt="Audi">
                     </div>
@@ -79,10 +79,10 @@
             <div class="footer-col">
                 <h4>Pages</h4>
                 <ul>
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="./aboutus.html">About Us</a></li>
-                    <li><a href="./cars.html">Cars</a></li>
-                    <li><a href="./services.html">Services</a></li>
+                    <li><a href="./index.php">Home</a></li>
+                    <li><a href="./aboutus.php">About Us</a></li>
+                    <li><a href="./cars.php">Cars</a></li>
+                    <li><a href="./services.php">Services</a></li>
                 </ul>
             </div>
 

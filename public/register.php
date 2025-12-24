@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Log In | Rent-a-CarOE</title>
+        <title>Register | Rent-a-CarOE</title>
         <link rel="stylesheet" href="../assets/css/index.css">
         <link rel="icon" type="image/png" href="../assets/images/carsoe.png">
     </head>
@@ -11,16 +11,16 @@
 
     <nav class="navbar">
         <div class="left-side">
-            <a href="./index.html">
+            <a href="./index.php">
                 <img src="../assets/images/carsoe.png" class="logo" alt="Logo">
             </a>
         </div>
 
         <ul class="nav-links" id="nav-links">
-            <li><a href="./index.html" class="active">Home</a></li>
-            <li><a href="./aboutus.html">About</a></li>
-            <li><a href="./cars.html">Cars</a></li>
-            <li><a href="./services.html">Services</a></li>
+            <li><a href="./index.php">Home</a></li>
+            <li><a href="./aboutus.php">About</a></li>
+            <li><a href="./cars.php">Cars</a></li>
+            <li><a href="./services.php" class="active">Services</a></li>
         </ul>
 
         <div class="hamburger" id="hamburger">
@@ -35,18 +35,30 @@
             <img src="../assets/images/carsoe.png" alt="Logo">
         </div>
         <div class="auth-container">
-            <h2>Login</h2>
-            <form id="loginForm">
+            <h2>Register</h2>
+            <form id="registerForm">
                 <div class="form-group">
-                    <label for="loginEmail">Email</label>
-                    <input type="email" id="loginEmail" name="email" placeholder="Enter your email">
+                    <label for="regFullname">Full Name</label>
+                    <input type="text" id="regFullname" name="fullname" placeholder="Enter your full name">
                 </div>
+
                 <div class="form-group">
-                    <label for="loginPassword">Password</label>
-                    <input type="password" id="loginPassword" name="password" placeholder="Enter your password">
+                    <label for="regEmail">Email</label>
+                    <input type="email" id="regEmail" name="email" placeholder="Enter your email">
                 </div>
-                <button type="submit">Login</button>
-                <p>Don't have an account? <a href="register.html">Register</a></p>
+
+                <div class="form-group">
+                    <label for="regPassword">Password</label>
+                    <input type="password" id="regPassword" name="password" placeholder="Enter your password">
+                </div>
+
+                <div class="form-group">
+                    <label for="regConfirmPassword">Confirm Password</label>
+                    <input type="password" id="regConfirmPassword" name="confirmPassword" placeholder="Confirm your password">
+                </div>
+
+                <button type="submit">Register</button>
+                <p>Already have an account? <a href="login.php">Login</a></p>
             </form>
         </div>
     </section>
@@ -62,10 +74,10 @@
             <div class="footer-col">
                 <h4>Pages</h4>
                 <ul>
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="./aboutus.html">About Us</a></li>
-                    <li><a href="./cars.html">Cars</a></li>
-                    <li><a href="./services.html">Services</a></li>
+                    <li><a href="./index.php">Home</a></li>
+                    <li><a href="./aboutus.php">About Us</a></li>
+                    <li><a href="./cars.php">Cars</a></li>
+                    <li><a href="./services.php">Services</a></li>
                 </ul>
             </div>
 
@@ -82,7 +94,7 @@
             <p>© 2025 Rent-a-Car. All rights reserved.</p>
         </div>
     </footer>
-
+    
 <script src="../assets/js/script.js"></script>
 </body>
 </html>

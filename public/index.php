@@ -11,16 +11,16 @@
     
     <nav class="navbar">
         <div class="left-side">
-            <a href="./index.html">
+            <a href="./index.php">
                 <img src="../assets/images/carsoe.png" class="logo" alt="Logo">
             </a>
         </div>
 
         <ul class="nav-links" id="nav-links">
-            <li><a href="./index.html" class="active">Home</a></li>
-            <li><a href="./aboutus.html">About</a></li>
-            <li><a href="./cars.html">Cars</a></li>
-            <li><a href="./services.html">Services</a></li>
+            <li><a href="./index.php" class="active">Home</a></li>
+            <li><a href="./aboutus.php">About</a></li>
+            <li><a href="./cars.php">Cars</a></li>
+            <li><a href="./services.php">Services</a></li>
         </ul>
 
         <div class="hamburger" id="hamburger">
@@ -36,7 +36,7 @@
         <div class="hero-center">
             <h1>Find Your Perfect Car</h1>
             <div class="hero-button">
-                <a href="./cars.html" class="btn-view-cars">View All Cars</a>
+                <a href="./cars.php" class="btn-view-cars">View All Cars</a>
             </div>
         </div>
     </section>
@@ -52,10 +52,10 @@
             <div class="footer-col">
                 <h4>Pages</h4>
                 <ul>
-                    <li><a href="./index.html">Home</a></li>
-                    <li><a href="./aboutus.html">About Us</a></li>
-                    <li><a href="./cars.html">Cars</a></li>
-                    <li><a href="./services.html">Services</a></li>
+                    <li><a href="./index.php">Home</a></li>
+                    <li><a href="./aboutus.php">About Us</a></li>
+                    <li><a href="./cars.php">Cars</a></li>
+                    <li><a href="./services.php">Services</a></li>
                 </ul>
             </div>
 
