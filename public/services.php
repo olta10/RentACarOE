@@ -4,15 +4,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Services | Rent-a-CarOE</title>
-    <link rel="stylesheet" href="../assets/css/index.css">
-    <link rel="icon" type="image/png" href="../assets/images/carsoe.png">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="icon" type="image/png" href="images/carsoe.png">
 </head>
 <body>
 
     <nav class="navbar">
         <div class="left-side">
             <a href="./index.php">
-                <img src="../assets/images/carsoe.png" class="logo" alt="Logo">
+                <img src="images/carsoe.png" class="logo" alt="Logo">
             </a>
         </div>
 
@@ -38,7 +38,7 @@
     <section class="service-details container">
 
         <div class="main-image">
-            <img src="../assets/images/foto.jpg" alt="Airport Transfer Service">
+            <img src="images/foto.jpg" alt="Airport Transfer Service">
         </div>
 
         <div class="service-info">

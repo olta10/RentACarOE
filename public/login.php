@@ -4,15 +4,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Log In | Rent-a-CarOE</title>
-        <link rel="stylesheet" href="../assets/css/index.css">
-        <link rel="icon" type="image/png" href="../assets/images/carsoe.png">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="icon" type="image/png" href="images/carsoe.png">
     </head>
 <body>
 
     <nav class="navbar">
         <div class="left-side">
             <a href="./index.php">
-                <img src="../assets/images/carsoe.png" class="logo" alt="Logo">
+                <img src="images/carsoe.png" class="logo" alt="Logo">
             </a>
         </div>
 
@@ -32,22 +32,23 @@
 
     <section class="auth-section">
         <div class="auth-logo">
-            <img src="../assets/images/carsoe.png" alt="Logo">
+            <img src="images/carsoe.png" alt="Logo">
         </div>
         <div class="auth-container">
             <h2>Login</h2>
-            <form id="loginForm">
-                <div class="form-group">
-                    <label for="loginEmail">Email</label>
-                    <input type="email" id="loginEmail" name="email" placeholder="Enter your email">
-                </div>
-                <div class="form-group">
-                    <label for="loginPassword">Password</label>
-                    <input type="password" id="loginPassword" name="password" placeholder="Enter your password">
-                </div>
-                <button type="submit">Login</button>
-                <p>Don't have an account? <a href="register.php">Register</a></p>
-            </form>
+                <form id="loginForm" method="POST" action="login.php">
+                    <div class="form-group">
+                        <label for="loginUsername">Username or Email</label>
+                        <input type="text" id="loginUsername" name="username" placeholder="Enter your username or email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" name="password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit">Login</button>
+                    <p>Don't have an account? <a href="register.php">Register</a></p>
+                </form>
+
         </div>
     </section>
 

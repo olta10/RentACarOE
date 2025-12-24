@@ -4,15 +4,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Register | Rent-a-CarOE</title>
-        <link rel="stylesheet" href="../assets/css/index.css">
-        <link rel="icon" type="image/png" href="../assets/images/carsoe.png">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="icon" type="image/png" href="images/carsoe.png">
     </head>
 <body>
 
     <nav class="navbar">
         <div class="left-side">
             <a href="./index.php">
-                <img src="../assets/images/carsoe.png" class="logo" alt="Logo">
+                <img src="images/carsoe.png" class="logo" alt="Logo">
             </a>
         </div>
 
@@ -32,34 +32,35 @@
 
     <section class="auth-section">
         <div class="auth-logo">
-            <img src="../assets/images/carsoe.png" alt="Logo">
+            <img src="images/carsoe.png" alt="Logo">
         </div>
         <div class="auth-container">
             <h2>Register</h2>
-            <form id="registerForm">
-                <div class="form-group">
-                    <label for="regFullname">Full Name</label>
-                    <input type="text" id="regFullname" name="fullname" placeholder="Enter your full name">
-                </div>
+                <form id="registerForm" method="POST" action="../server/app/register.php">
+                    <div class="form-group">
+                        <label for="regFullname">Full Name</label>
+                        <input type="text" id="regFullname" name="fullname" placeholder="Enter your full name" required>
+                    </div>
 
-                <div class="form-group">
-                    <label for="regEmail">Email</label>
-                    <input type="email" id="regEmail" name="email" placeholder="Enter your email">
-                </div>
+                    <div class="form-group">
+                        <label for="regEmail">Email</label>
+                        <input type="email" id="regEmail" name="email" placeholder="Enter your email" required>
+                    </div>
 
-                <div class="form-group">
-                    <label for="regPassword">Password</label>
-                    <input type="password" id="regPassword" name="password" placeholder="Enter your password">
-                </div>
+                    <div class="form-group">
+                        <label for="regPassword">Password</label>
+                        <input type="password" id="regPassword" name="password" placeholder="Enter your password" required>
+                    </div>
 
-                <div class="form-group">
-                    <label for="regConfirmPassword">Confirm Password</label>
-                    <input type="password" id="regConfirmPassword" name="confirmPassword" placeholder="Confirm your password">
-                </div>
+                    <div class="form-group">
+                        <label for="regConfirmPassword">Confirm Password</label>
+                        <input type="password" id="regConfirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
+                    </div>
 
-                <button type="submit">Register</button>
-                <p>Already have an account? <a href="login.php">Login</a></p>
-            </form>
+                    <button type="submit">Register</button>
+                    <p>Already have an account? <a href="login.php">Login</a></p>
+                </form>
+
         </div>
     </section>
 

@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Details | Rent-a-CarOE</title>
-    <link rel="stylesheet" href="../assets/css/index.css">
-    <link rel="icon" type="image/png" href="../assets/images/carsoe.png">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="icon" type="image/png" href="images/carsoe.png">
 </head>
 <body>
 
     <nav class="navbar">
         <div class="left-side">
             <a href="./index.php">
-                <img src="../assets/images/carsoe.png" class="logo" alt="Logo">
+                /carsoe.png" class="logo" alt="Logo">
             </a>
         </div>
 
@@ -39,19 +39,19 @@
 
         <div class="car-grid">
             <div class="car-card">
-                <img src="../assets/images/aclass.jpg" alt="Mercedes A-Class">
+                <img src="images/aclass.jpg" alt="Mercedes A-Class">
                 <h3>Mercedes A-Class</h3>
             </div>
             <div class="car-card">
-                <img src="../assets/images/cclass.jpg" alt="Mercedes C-Class">
+                <img src="images/cclass.jpg" alt="Mercedes C-Class">
                 <h3>Mercedes C-Class</h3>
             </div>
             <div class="car-card">
-                <img src="../assets/images/eclass.jpg" alt="Mercedes E-Class">
+                <img src="images/eclass.jpg" alt="Mercedes E-Class">
                 <h3>Mercedes E-Class</h3>
             </div>
             <div class="car-card">
-                <img src="../assets/images/glc.jpg" alt="Mercedes GLC">
+                <img src="images/glc.jpg" alt="Mercedes GLC">
                 <h3>Mercedes GLC</h3>
             </div>
         </div>
@@ -68,19 +68,19 @@
 
         <div class="car-grid">
             <div class="car-card">
-                <img src="../assets/images/a7.jpg" alt="Audi A7">
+                <img src="images/a7.jpg" alt="Audi A7">
                 <h3>Audi A7</h3>
             </div>
             <div class="car-card">
-                <img src="../assets/images/a6.jpg" alt="Audi A6">
+                <img src="images/a6.jpg" alt="Audi A6">
                 <h3>Audi A6</h3>
             </div>
             <div class="car-card">
-                <img src="../assets/images/q7.jpg" alt="Audi Q7">
+                <img src="images/q7.jpg" alt="Audi Q7">
                 <h3>Audi Q7</h3>
             </div>
             <div class="car-card">
-                <img src="../assets/images/q8.jpg" alt="Audi Q8">
+                <img src="images/q8.jpg" alt="Audi Q8">
                 <h3>Audi Q8</h3>
             </div>
         </div>
@@ -97,19 +97,19 @@
 
         <div class="car-grid">
             <div class="car-card">
-                <img src="../assets/images/x6.jpg" alt="BMW X6">
+                <img src="images/x6.jpg" alt="BMW X6">
                 <h3>BMW X6</h3>
             </div>
             <div class="car-card">
-                <img src="../assets/images/m4.jpg" alt="BMW M4">
+                <img src="images/m4.jpg" alt="BMW M4">
                 <h3>BMW M4</h3>
             </div>
             <div class="car-card">
-                <img src="../assets/images/series7.jpg" alt="BMW Series 7">
+                <img src="images/series7.jpg" alt="BMW Series 7">
                 <h3>BMW Series 5</h3>
             </div>
             <div class="car-card">
-                <img src="../assets/images/x1.jpg" alt="BMW X1">
+                <img src="images/x1.jpg" alt="BMW X1">
                 <h3>BMW X5</h3>
             </div>
         </div>

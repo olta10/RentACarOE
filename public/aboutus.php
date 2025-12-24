@@ -4,15 +4,15 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>About Us | Rent-a-CarOE</title>
-        <link rel="stylesheet" href="../assets/css/index.css">
-        <link rel="icon" type="image/png" href="../assets/images/carsoe.png">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="icon" type="image/png" href="images/carsoe.png">
     </head>
 <body>
     
     <nav class="navbar">
         <div class="left-side">
             <a href="./index.php">
-                <img src="../assets/images/carsoe.png" class="logo" alt="Logo">
+                <img src="images/carsoe.png" class="logo" alt="Logo">
             </a>
         </div>
 
@@ -51,7 +51,7 @@
             </div>
 
             <div class="about-image">
-                <img src="../assets/images/foto.jpg" alt="About Car">
+                <img src="images/foto.jpg" alt="About Car">
             </div>
 
         </div>

@@ -4,15 +4,15 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Cars | Rent-a-CarOE</title>
-        <link rel="stylesheet" href="../assets/css/index.css">
-        <link rel="icon" type="image/png" href="../assets/images/carsoe.png">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="icon" type="image/png" href="images/carsoe.png">
     </head>
 <body>
 
     <nav class="navbar">
         <div class="left-side">
             <a href="./index.php">
-                <img src="../assets/images/carsoe.png" class="logo" alt="Logo">
+                <img src="images/carsoe.png" class="logo" alt="Logo">
             </a>
         </div>
 
@@ -37,7 +37,7 @@
                 
                 <a href="./details.php" class="car-card">
                     <div class="car-image">
-                        <img src="../assets/images/mercedes.jpg" alt="Mercedes">
+                        <img src="images/mercedes.jpg" alt="Mercedes">
                     </div>
                     <div class="car-content">
                         <h3>Mercedes</h3>
@@ -47,7 +47,7 @@
 
                 <a href="./details.php" class="car-card">
                     <div class="car-image">
-                        <img src="../assets/images/bmw.jpg" alt="BMW">
+                        <img src="images/bmw.jpg" alt="BMW">
                     </div>
                     <div class="car-content">
                         <h3>BMW</h3>
@@ -57,7 +57,7 @@
 
                 <a href="./details.php" class="car-card">
                     <div class="car-image">
-                        <img src="../assets/images/audi.jpg" alt="Audi">
+                        <img src="images/audi.jpg" alt="Audi">
                     </div>
                     <div class="car-content">
                         <h3>Audi</h3>
