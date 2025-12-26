@@ -36,7 +36,7 @@
         </div>
         <div class="auth-container">
             <h2>Register</h2>
-                <form id="registerForm" method="POST" action="../server/app/register.php">
+                <form id="registerForm" method="POST" action="../server/registerVerify.php">
                     <div class="form-group">
                         <label for="regFullname">Full Name</label>
                         <input type="text" id="regFullname" name="fullname" placeholder="Enter your full name" required>

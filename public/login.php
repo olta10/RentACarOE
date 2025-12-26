@@ -36,7 +36,7 @@
         </div>
         <div class="auth-container">
             <h2>Login</h2>
-                <form id="loginForm" method="POST" action="login.php">
+                <form id="loginForm" method="POST" action="../server/loginVerify.php">
                     <div class="form-group">
                         <label for="loginUsername">Username or Email</label>
                         <input type="text" id="loginUsername" name="username" placeholder="Enter your username or email" required>
