@@ -42,11 +42,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
 
         <ul class="nav-links" id="nav-links">
-            <li><a href="./index.php" class="active">Home</a></li>
+            <li><a href="./index.php">Home</a></li>
             <li><a href="./aboutus.php">About</a></li>
             <li><a href="./cars.php">Cars</a></li>
-            <li><a href="./services.php">Services</a></li>
+            <li><a href="./services.php">Services</a></li>            
+            <li><a href="./contact.php">Contact</a></li>
         </ul>
+
+        <div class="right-side">
+            <a href="register.php">
+                <img src="images/usser.png" class="user-logo" alt="User">
+            </a>
+        </div>
 
         <div class="hamburger" id="hamburger">
             <span></span>

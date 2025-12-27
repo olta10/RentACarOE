@@ -3,9 +3,10 @@ session_start();
 require '../server/config.php';
 
 if (!isset($_SESSION['role']) || strtolower($_SESSION['role']) !== 'admin') {
-    die("Access denied");
+    echo "Access denied. You will be redirected in 2 seconds.";
+    header("Refresh:2; url=../public/login.php"); 
+    exit;
 }
-
 if (isset($_GET['delete_id'])) {
     $delete_id = intval($_GET['delete_id']);
     $stmt = $conn->prepare("DELETE FROM contacts WHERE id = :id");

@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
 session_start();
 require '../server/config.php';
 
@@ -18,7 +15,7 @@ $car_id = intval($_GET['car_id']);
 
 $stmt = $conn->prepare("SELECT * FROM cars WHERE id = ?");
 $stmt->execute([$car_id]);
-$car = $stmt->fetch();
+$car = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if (!$car) {
     die("Car not found");
@@ -32,17 +29,16 @@ if (!$car) {
 </head>
 <body>
 
-<h2>Order: <?= htmlspecialchars($car['title']) ?></h2>
-<p>Price per day: <?= $car['price_per_day'] ?> €</p>
+<h2>Order: <?= htmlspecialchars($car['service_name']) ?></h2>
 
-<form method="post" action="save_order.php">
+<form method="post" action="../server/save_order.php">
     <input type="hidden" name="car_id" value="<?= $car['id'] ?>">
 
-    <label>Days:</label>
-    <input type="number" name="days" required>
+    <label>Quantity:</label>
+    <input type="number" name="quantity" min="1" value="1" required>
 
     <label>Preferences:</label>
-    <textarea name="preferences"></textarea>
+    <textarea name="preferences" placeholder="Shkruaj preferencat..."></textarea>
 
     <button type="submit">Confirm Order</button>
 </form>

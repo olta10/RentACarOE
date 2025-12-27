@@ -6,7 +6,10 @@ $email   = $_POST['email'] ?? '';
 $message = $_POST['message'] ?? '';
 
 if ($name === '' || $email === '' || $message === '') {
-    header("Location: ../public/contact.php?error=1");
+    echo "<script>
+        alert('Ju lutem plotësoni të gjitha fushat!');
+        window.location.href = '../public/contact.php';
+    </script>";
     exit;
 }
 
@@ -20,6 +23,9 @@ $stmt->execute([
     ':message' => $message
 ]);
 
-header("Location: ../public/contact.php?success=1");
+echo "<script>
+    alert('Mesazhi u dërgua me sukses!');
+    window.location.href = '../public/contact.php';
+</script>";
 exit;
 ?>

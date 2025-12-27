@@ -1,38 +1,45 @@
 <?php
-require 'config.php';  // lidhja me DB
+session_start();
+require 'config.php';
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $user_name = trim($_POST['user_name']);
-    $service_name = trim($_POST['service_name']);
-    $quantity = intval($_POST['quantity']);
-    $preferences = trim($_POST['preferences']);
+if (!isset($_SESSION['user_id'])) {
+    die("You must login first");
+}
 
-    if ($user_name === '' || $service_name === '') {
-        die("Name or Service missing");
-    }
+$user_id = $_SESSION['user_id'];
+$service_name = $_POST['service_name'] ?? null;
+$quantity = $_POST['quantity'] ?? 1;
+$preferences = $_POST['preferences'] ?? '';
 
-    $stmt = $conn->prepare("
-        INSERT INTO orders (user_name, service_name, quantity, preferences)
-        VALUES (:user_name, :service_name, :quantity, :preferences)
-    ");
+if (!$service_name) {
+    die("Service Name missing");
+}
 
-    $stmt->execute([
-        ':user_name' => $user_name,
-        ':service_name' => $service_name,
-        ':quantity' => $quantity,
-        ':preferences' => $preferences
-    ]);
+$stmt = $conn->prepare("
+    SELECT id FROM orders 
+    WHERE user_id = ? AND service_name = ? 
+    AND preferences = ? 
+    AND created_at > DATE_SUB(NOW(), INTERVAL 1 MINUTE)
+");
+$stmt->execute([$user_id, $service_name, $preferences]);
+$existing = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    echo "Order successfully placed! Redirecting...";
-
-    echo '<script>
-            setTimeout(function(){
-                window.location.href = "../public/services.php";
-            }, 2000);
-          </script>';
-    exit;
-
-} else {
-    header("Location: ../public/services.php");
+if ($existing) {
+    header("Location: ../public/services.php?error=duplicate");
     exit;
 }
+
+$sql = "INSERT INTO orders (user_id, service_name, quantity, preferences, created_at)
+        VALUES (:user_id, :service_name, :quantity, :preferences, NOW())";
+
+$stmt = $conn->prepare($sql);
+$stmt->execute([
+    ':user_id'      => $user_id,
+    ':service_name' => $service_name,
+    ':quantity'     => $quantity,
+    ':preferences'  => $preferences
+]);
+
+header("Location: ../public/services.php?success=1");
+exit;
+?>

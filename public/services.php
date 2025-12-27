@@ -9,26 +9,33 @@
     </head>
     <body>
 
-        <nav class="navbar">
-            <div class="left-side">
-                <a href="./index.php">
-                    <img src="images/carsoe.png" class="logo" alt="Logo">
-                </a>
-            </div>
+    <nav class="navbar">
+        <div class="left-side">
+            <a href="./index.php">
+                <img src="images/carsoe.png" class="logo" alt="Logo">
+            </a>
+        </div>
 
-            <ul class="nav-links" id="nav-links">
-                <li><a href="./index.php">Home</a></li>
-                <li><a href="./aboutus.php">About</a></li>
-                <li><a href="./cars.php">Cars</a></li>
-                <li><a href="./services.php" class="active">Services</a></li>
-            </ul>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="./index.php">Home</a></li>
+            <li><a href="./aboutus.php">About</a></li>
+            <li><a href="./cars.php">Cars</a></li>
+            <li><a href="./services.php" class="active">Services</a></li>            
+            <li><a href="./contact.php">Contact</a></li>
+        </ul>
 
-            <div class="hamburger" id="hamburger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </nav>
+        <div class="right-side">
+            <a href="register.php">
+                <img src="images/usser.png" class="user-logo" alt="User">
+            </a>
+        </div>
+
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
 
         <section class="service-hero">
             <h1>Airport Transfer</h1>
@@ -54,28 +61,20 @@
                     to ensure a stress-free transport experience.
                 </p>
 
-                <h2>Pricing</h2>
-                <ul class="price-list">
-                    <li><strong>Standard Car:</strong> 20€ – 30€</li>
-                    <li><strong>Premium Car:</strong> 35€ – 50€</li>
-                    <li><strong>Group VAN:</strong> 40€ – 60€</li>
-                </ul>
+        <form action="../server/save_order.php" method="POST" class="book-form">
+            <input type="hidden" name="service_name" value="Airport Transfer">
 
-            <form action="../server/save_order.php" method="POST" class="book-form">
-                <input type="hidden" name="service_name" value="Airport Transfer">
+            <label for="user_name">Your Name:</label>
+            <input type="text" id="user_name" name="user_name" placeholder="Enter your name" required>
 
-                <label>Your Name:</label>
-                <input type="text" name="user_name" required>
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" name="quantity" value="1" min="1" required>
 
-                <label>Quantity:</label>
-                <input type="number" name="quantity" value="1" required>
+            <label for="preferences">Preferences:</label>
+            <textarea id="preferences" name="preferences" placeholder="Any special requests..."></textarea>
 
-                <label>Preferences:</label>
-                <textarea name="preferences"></textarea>
-
-                <button type="submit" class="btn-book">Book Now</button>
-            </form>
-
+            <button type="submit" class="btn-book">Book Now</button>
+        </form>
 
             </div>
 

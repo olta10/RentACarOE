@@ -8,7 +8,6 @@
         <link rel="icon" type="image/png" href="images/carsoe.png">
     </head>
 <body>
-    
     <nav class="navbar">
         <div class="left-side">
             <a href="./index.php">
@@ -24,12 +23,19 @@
             <li><a href="./contact.php">Contact</a></li>
         </ul>
 
+        <div class="right-side">
+            <a href="register.php">
+                <img src="images/usser.png" class="user-logo" alt="User">
+            </a>
+        </div>
+
         <div class="hamburger" id="hamburger">
             <span></span>
             <span></span>
             <span></span>
         </div>
     </nav>
+
         
     <section class="hero-full">
         <img src="images/foto.jpg" class="hero-img" alt="Car">

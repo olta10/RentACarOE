@@ -1,34 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Details | Rent-a-CarOE</title>
-        <link rel="stylesheet" href="css/index.css">
-        <link rel="icon" type="image/png" href="images/carsoe.png">
-</head>
-<body>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Details | Rent-a-CarOE</title>
+            <link rel="stylesheet" href="css/index.css">
+            <link rel="icon" type="image/png" href="images/carsoe.png">
+    </head>
+    <body>
 
-    <nav class="navbar">
-        <div class="left-side">
-            <a href="./index.php">
-                /carsoe.png" class="logo" alt="Logo">
-            </a>
-        </div>
+<nav class="navbar">
+    <div class="left-side">
+        <a href="./index.php">
+            <img src="images/carsoe.png" class="logo" alt="Logo">
+        </a>
+    </div>
 
-        <ul class="nav-links" id="nav-links">
-            <li><a href="./index.php">Home</a></li>
-            <li><a href="./aboutus.php">About</a></li>
-            <li><a href="./cars.php"  class="active">Cars</a></li>
-            <li><a href="./services.php">Services</a></li>
-        </ul>
+    <ul class="nav-links" id="nav-links">
+        <li><a href="./index.php">Home</a></li>
+        <li><a href="./aboutus.php">About</a></li>
+        <li><a href="./cars.php">Cars</a></li>
+        <li><a href="./services.php">Services</a></li>
+        <li><a href="./contact.php">Contact</a></li>
+    </ul>
 
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-    </nav>
+    <div class="right-side">
+        <a href="register.php">
+            <img src="images/usser.png" class="user-logo" alt="User">
+        </a>
+    </div>
+
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</nav>
+
 
     <!-- Mercedes Section -->
     <section class="car-section">

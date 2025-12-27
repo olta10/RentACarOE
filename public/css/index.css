@@ -306,30 +306,6 @@
     background: linear-gradient(135deg, #6c757d, #495057);
 }
 
-/* ---------------- PRICE LIST ---------------- */
-.price-list {
-    list-style: none;
-    padding: 0;
-    margin: 25px 0 35px;
-}
-
-.price-list li {
-    background: #fff;
-    border: 1px solid #eee;
-    padding: 15px 20px;
-    border-radius: 14px;
-    font-size: 16px;
-    margin-bottom: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-    display: flex;
-    justify-content: space-between;
-    font-weight: 500;
-}
-
-.price-list li strong {
-    color: #111;
-}
-
 /* ---------------- BOOK NOW BUTTON ---------------- */
 .btn-book {
     display: inline-block;
@@ -630,6 +606,7 @@ button:hover {
 
 .auth-container a:hover {
     text-decoration: underline;
+
 }
 
 /* ---------------- FOOTER ---------------- */
@@ -926,6 +903,144 @@ button:hover {
 }
 
 
+/* ---------------- CONTACT SECTION ---------------- */
+.contact-section {
+    padding: 60px 20px;
+    background: #f9f9f9;
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contact-container {
+    background: #fff;
+    padding: 50px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+}
+.contact-container h1 {
+    font-size: 32px;
+    margin-bottom: 25px;
+    color: #222;
+}
+.contact-container p {
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.contact-form input,
+.contact-form textarea {
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    transition: 0.3s;
+    width: 100%;
+}
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #6c757d;
+    box-shadow: 0 0 5px rgba(108,117,125,0.5);
+}
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+.contact-form button {
+    padding: 14px;
+    background: #6c757d;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.contact-form button:hover {
+    background: #495057;
+}
+@media(max-width: 700px){
+    .contact-container {
+        padding: 30px 20px;
+    }
+}
+
+
+/* ---------------- BOOK FORM ---------------- */
+.book-form {
+    background: #f8f9fa;
+    padding: 30px 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.book-form label {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.book-form input,
+.book-form textarea {
+    padding: 12px 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 15px;
+    transition: 0.3s;
+    width: 100%;
+    font-family: Arial, sans-serif;
+}
+
+.book-form input:focus,
+.book-form textarea:focus {
+    outline: none;
+    border-color: #6c757d;
+    box-shadow: 0 0 5px rgba(108,117,125,0.5);
+}
+
+.book-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.book-form .btn-book {
+    padding: 14px;
+    background: #6c757d;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.book-form .btn-book:hover {
+    background: #495057;
+    transform: translateY(-2px);
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width: 600px){
+    .book-form {
+        padding: 25px 20px;
+    }
+}
 
 
 
