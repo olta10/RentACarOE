@@ -20,7 +20,8 @@
             <li><a href="./index.php" class="active">Home</a></li>
             <li><a href="./aboutus.php">About</a></li>
             <li><a href="./cars.php">Cars</a></li>
-            <li><a href="./services.php">Services</a></li>
+            <li><a href="./services.php">Services</a></li>            
+            <li><a href="./contact.php">Contact</a></li>
         </ul>
 
         <div class="hamburger" id="hamburger">

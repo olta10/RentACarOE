@@ -1,13 +1,20 @@
 <?php
-$host = "localhost";
-$dbname = "rentacaroe";
-$user = "root";
-$pass = "";
+$host = 'localhost';
+$db   = 'rentacaroe';
+$user = 'root';
+$pass = '';
+$charset = 'utf8mb4';
+
+$dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+
+$options = [
+    PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+];
 
 try {
-    $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch(PDOException $e) {
-    die("Connection failed: " . $e->getMessage());
+    $conn = new PDO($dsn, $user, $pass, $options);
+} catch (PDOException $e) {
+    die("Database connection failed: " . $e->getMessage());
 }
 ?>

@@ -1,3 +1,28 @@
+<?php
+session_start();
+require '../server/config.php';
+$error = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $stmt = $conn->prepare("SELECT * FROM users WHERE email = :email");
+    $stmt->execute([':email' => $email]);
+    $user = $stmt->fetch();
+
+    if ($user && password_verify($password, $user['password']) && strtolower($user['role']) === 'admin') {
+        $_SESSION['role'] = 'admin';
+        $_SESSION['user_id'] = $user['id'];
+        header("Location: admin_dashboard.php");
+        exit;
+    } else {
+        $error = "Invalid credentials or not admin";
+    }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
     <head>

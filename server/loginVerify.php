@@ -1,15 +1,14 @@
 <?php
 session_start();
-require '../server/config.php';
+require 'config.php'; 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['username'] ?? '');
     $password = $_POST['password'] ?? '';
 
     if (!$email || !$password) {
-        echo "<p style='color:red;'>Please fill in all fields.</p>";
-        echo "<p>Redirecting back to login...</p>";
-        header("refresh:2; url=../public/login.php");
+        $_SESSION['error'] = "Please fill in all fields.";
+        header("Location: ../public/login.php");
         exit;
     }
 
@@ -18,14 +17,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (!$user) {
-        echo "<p style='color:red;'>User does not exist. Redirecting to Register...</p>";
-        header("refresh:2; url=../public/register.php");
+        $_SESSION['error'] = "User does not exist. Please register.";
+        header("Location: ../public/register.php");
         exit;
     }
 
     if (!password_verify($password, $user['password'])) {
-        echo "<p style='color:red;'>Invalid password. Try again.</p>";
-        header("refresh:2; url=../public/login.php");
+        $_SESSION['error'] = "Invalid password. Try again.";
+        header("Location: ../public/login.php");
         exit;
     }
 
@@ -36,7 +35,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $role = strtolower(trim($user['role']));
     if ($role === 'admin') {
-        header("Location: ../server/admin_dashboard.php");
+        header("Location: admin_dashboard.php");
     } else {
         header("Location: ../public/cars.php"); 
     }
