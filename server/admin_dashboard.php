@@ -23,11 +23,8 @@ $stmt2->execute();
 $users = $stmt2->fetchAll();
 
 $stmt3 = $conn->query("
-    SELECT orders.*, users.name AS user_name, cars.name AS car_name
-    FROM orders
-    JOIN users ON orders.user_id = users.id
-    JOIN cars ON orders.car_id = cars.id
-    ORDER BY orders.created_at DESC
+    SELECT * FROM orders
+    ORDER BY created_at DESC
 ");
 $orders = $stmt3->fetchAll();
 ?>
@@ -59,8 +56,9 @@ h1,h2 { text-align:center; margin-bottom:20px; }
 
 <div class="container">
     <h1>Admin Dashboard</h1>
-    <a href="logout.php" class="logout-btn">Logout</a>
+    <a href="../public/logout.php" class="logout-btn">Logout</a>
 
+    <!-- CONTACT MESSAGES -->
     <h2>Contact Messages</h2>
     <?php if($contacts): ?>
     <table class="table">
@@ -89,6 +87,7 @@ h1,h2 { text-align:center; margin-bottom:20px; }
         <p style="text-align:center;">No messages found.</p>
     <?php endif; ?>
 
+    <!-- USERS LIST -->
     <h2>Users List</h2>
     <table class="table">
         <tr>
@@ -107,13 +106,14 @@ h1,h2 { text-align:center; margin-bottom:20px; }
         <?php endforeach; ?>
     </table>
 
+    <!-- ORDERS -->
     <h2>Orders</h2>
     <?php if($orders): ?>
     <table class="table">
         <tr>
             <th>Order ID</th>
             <th>User</th>
-            <th>Car</th>
+            <th>Service</th>
             <th>Quantity</th>
             <th>Preferences</th>
             <th>Ordered At</th>
@@ -122,7 +122,7 @@ h1,h2 { text-align:center; margin-bottom:20px; }
         <tr>
             <td><?= $o['id'] ?></td>
             <td><?= htmlspecialchars($o['user_name']) ?></td>
-            <td><?= htmlspecialchars($o['car_name']) ?></td>
+            <td><?= htmlspecialchars($o['service_name']) ?></td>
             <td><?= $o['quantity'] ?></td>
             <td><?= htmlspecialchars($o['preferences']) ?></td>
             <td><?= $o['created_at'] ?></td>

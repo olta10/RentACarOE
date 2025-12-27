@@ -1,61 +1,51 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
+
 session_start();
 require '../server/config.php';
 
-if(!isset($_SESSION['user_id'])){
-    header("Location: login.php");
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../public/login.php");
     exit;
 }
 
-$car_id = intval($_GET['car_id'] ?? 0);
-if($car_id <= 0) die("Invalid car ID");
+if (!isset($_GET['car_id'])) {
+    die("Car ID missing");
+}
 
-$stmt = $conn->prepare("SELECT * FROM cars WHERE id = :id");
-$stmt->execute([':id'=>$car_id]);
+$car_id = intval($_GET['car_id']);
+
+$stmt = $conn->prepare("SELECT * FROM cars WHERE id = ?");
+$stmt->execute([$car_id]);
 $car = $stmt->fetch();
 
-if(!$car) die("Car not found");
-
-if($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $preferences = $_POST['preferences'] ?? '';
-    $quantity = intval($_POST['quantity'] ?? 1);
-    $user_id = $_SESSION['user_id'];
-
-    $stmt = $conn->prepare("INSERT INTO orders (user_id, car_id, quantity, preferences) VALUES (:user_id, :car_id, :quantity, :preferences)");
-    $stmt->execute([
-        ':user_id' => $user_id,
-        ':car_id' => $car_id,
-        ':quantity' => $quantity,
-        ':preferences' => $preferences
-    ]);
-
-    header("Location: cars.php?success=1");
-    exit;
+if (!$car) {
+    die("Car not found");
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Order Car</title>
-<link rel="stylesheet" href="css/index.css">
+    <title>Order Car</title>
 </head>
 <body>
 
-<div class="container">
-    <h1>Order <?= htmlspecialchars($car['name']) ?></h1>
+<h2>Order: <?= htmlspecialchars($car['title']) ?></h2>
+<p>Price per day: <?= $car['price_per_day'] ?> €</p>
 
-    <form method="post">
-        <label>Quantity:</label>
-        <input type="number" name="quantity" value="1" min="1" required><br><br>
+<form method="post" action="save_order.php">
+    <input type="hidden" name="car_id" value="<?= $car['id'] ?>">
 
-        <label>Preferences / Notes:</label><br>
-        <textarea name="preferences" rows="4" cols="50" placeholder="E.g., color, GPS, child seat"></textarea><br><br>
+    <label>Days:</label>
+    <input type="number" name="days" required>
 
-        <button type="submit" class="order-btn">Place Order</button>
-    </form>
-</div>
+    <label>Preferences:</label>
+    <textarea name="preferences"></textarea>
+
+    <button type="submit">Confirm Order</button>
+</form>
 
 </body>
 </html>

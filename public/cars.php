@@ -1,14 +1,17 @@
 <?php
 require '../server/config.php';
 
-$sql = "SELECT cars.*, users.name AS user_name 
-        FROM cars 
-        JOIN users ON cars.created_by = users.id 
-        ORDER BY cars.created_at DESC";
+$sql = "
+    SELECT cars.*, users.name AS user_name
+    FROM cars
+    JOIN users ON cars.created_by = users.id
+    ORDER BY cars.id DESC
+";
 
 $result = $conn->query($sql);
 $cars = $result->fetchAll();
 ?>
+
 
 
 <!DOCTYPE html>

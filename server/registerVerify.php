@@ -1,9 +1,8 @@
 <?php
 require_once 'config.php';
-session_start();
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    header("Location: ../../client/register.php");
+    header("Location: ../public/register.php");
     exit;
 }
 
@@ -12,15 +11,13 @@ $email = trim($_POST['email']);
 $password = $_POST['password'];
 $confirmPassword = $_POST['confirmPassword'];
 
-if (empty($name) || empty($email) || empty($password)) {
-    echo "All fields are required";
-    header("refresh:3;url=../../client/register.php");
+if ($name === '' || $email === '' || $password === '') {
+    header("Location: ../public/register.php?error=empty");
     exit;
 }
 
 if ($password !== $confirmPassword) {
-    echo "Passwords do not match";
-    header("refresh:3;url=../../client/register.php");
+    header("Location: ../public/register.php?error=password");
     exit;
 }
 
@@ -28,26 +25,17 @@ $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
 $stmt->execute([$email]);
 
 if ($stmt->rowCount() > 0) {
-    echo "Email already exists, please try another one.";
-    header("refresh:2;url=../public/register.php");
+    header("Location: ../public/register.php?error=exists");
     exit;
 }
 
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-$role = 'user';
 
-$insert = $conn->prepare(
+$stmt = $conn->prepare(
     "INSERT INTO users (name, email, password, role)
-     VALUES (?, ?, ?, ?)"
+     VALUES (?, ?, ?, 'user')"
 );
+$stmt->execute([$name, $email, $hashedPassword]);
 
-$insert->execute([
-    $name,
-    $email,
-    $hashedPassword,
-    $role
-]);
-
-echo "Registration successful! Redirecting to login...";
-header("refresh:2;url=../public/login.php");
+header("Location: ../public/login.php?success=1");
 exit;
