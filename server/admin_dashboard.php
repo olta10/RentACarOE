@@ -1,6 +1,6 @@
 <?php
 session_start();
-require '../server/config.php';
+require 'config.php';
 
 if (!isset($_SESSION['role']) || strtolower($_SESSION['role']) !== 'admin') {
     echo "Access denied. You will be redirected in 2 seconds.";
@@ -23,9 +23,12 @@ $stmt2 = $conn->prepare("SELECT id, name, email, role FROM users ORDER BY id DES
 $stmt2->execute();
 $users = $stmt2->fetchAll();
 
+// Merr të dhënat e porosive me emrin e përdoruesit
 $stmt3 = $conn->query("
-    SELECT * FROM orders
-    ORDER BY created_at DESC
+    SELECT orders.*, users.name AS user_name
+    FROM orders
+    LEFT JOIN users ON orders.user_id = users.id
+    ORDER BY orders.created_at DESC
 ");
 $orders = $stmt3->fetchAll();
 ?>
@@ -88,53 +91,56 @@ h1,h2 { text-align:center; margin-bottom:20px; }
         <p style="text-align:center;">No messages found.</p>
     <?php endif; ?>
 
-    <!-- USERS LIST -->
-    <h2>Users List</h2>
-    <table class="table">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Role</th>
-        </tr>
-        <?php foreach($users as $u): ?>
-        <tr>
-            <td><?= htmlspecialchars($u['id']) ?></td>
-            <td><?= htmlspecialchars($u['name']) ?></td>
-            <td><?= htmlspecialchars($u['email']) ?></td>
-            <td class="<?= strtolower($u['role'])==='admin'?'admin-role':'' ?>"><?= htmlspecialchars($u['role']) ?></td>
-        </tr>
-        <?php endforeach; ?>
-    </table>
+<!-- ORDERS -->
+<h2>Orders</h2>
+<?php if($orders): ?>
+<table class="table">
+    <tr>
+        <th>Order ID</th>
+        <th>User</th>
+        <th>Service</th>
+        <th>Quantity</th>
+        <th>Preferences</th>
+        <th>Ordered At</th>
+    </tr>
+    <?php foreach($orders as $o): ?>
+    <tr>
+        <td><?= $o['id'] ?></td>
+        <td><?= htmlspecialchars($o['user_name'] ?? 'Unknown') ?></td>
+        <td><?= htmlspecialchars($o['service_name']) ?></td>
+        <td><?= $o['quantity'] ?></td>
+        <td><?= htmlspecialchars($o['preferences']) ?></td>
+        <td><?= $o['created_at'] ?></td>
+    </tr>
+    <?php endforeach; ?>
+</table>
+<?php else: ?>
+    <p style="text-align:center;">No orders found.</p>
+<?php endif; ?>
 
-    <!-- ORDERS -->
-    <h2>Orders</h2>
-    <?php if($orders): ?>
-    <table class="table">
-        <tr>
-            <th>Order ID</th>
-            <th>User</th>
-            <th>Service</th>
-            <th>Quantity</th>
-            <th>Preferences</th>
-            <th>Ordered At</th>
-        </tr>
-        <?php foreach($orders as $o): ?>
-        <tr>
-            <td><?= $o['id'] ?></td>
-            <td><?= htmlspecialchars($o['user_name']) ?></td>
-            <td><?= htmlspecialchars($o['service_name']) ?></td>
-            <td><?= $o['quantity'] ?></td>
-            <td><?= htmlspecialchars($o['preferences']) ?></td>
-            <td><?= $o['created_at'] ?></td>
-        </tr>
-        <?php endforeach; ?>
-    </table>
-    <?php else: ?>
-        <p style="text-align:center;">No orders found.</p>
-    <?php endif; ?>
-
+<!-- USERS LIST -->
+<h2>Users List</h2>
+<table class="table">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Role</th>
+        <th>Actions</th>
+    </tr>
+    <?php foreach($users as $u): ?>
+    <tr>
+        <td><?= htmlspecialchars($u['id']) ?></td>
+        <td><?= htmlspecialchars($u['name']) ?></td>
+        <td><?= htmlspecialchars($u['email']) ?></td>
+        <td class="<?= strtolower($u['role'])==='admin'?'admin-role':'' ?>"><?= htmlspecialchars($u['role']) ?></td>
+        <td>
+           <a href="../server/edit_user.php?id=<?= $u['id'] ?>" class="edit-btn">Edit</a>
+            <a href="../server/delete_user.php?id=<?= $u['id'] ?>" class="delete-btn" onclick="return confirm('Are you sure?')">Delete</a>
+            </td>
+    </tr>
+    <?php endforeach; ?>
+</table>
 </div>
-
 </body>
 </html>
