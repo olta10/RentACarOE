@@ -95,6 +95,6 @@ $error = isset($_GET['error']);
     </div>
 </footer>
 
-<script src="./js/script.js"></script>
+<script src="./js/validation.js.js"></script>
 </body>
 </html>

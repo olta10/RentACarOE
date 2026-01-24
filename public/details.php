@@ -155,6 +155,6 @@
         </div>
     </footer>
 
-<script src="../assets/js/script.js"></script>
+<script src="./js/validation.js.js"></script>
 </body>
 </html>

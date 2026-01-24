@@ -12,8 +12,6 @@ $result = $conn->query($sql);
 $cars = $result->fetchAll();
 ?>
 
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -123,6 +121,6 @@ $cars = $result->fetchAll();
         </div>
     </footer>
     
-<script src="../assets/js/script.js"></script>
+<script src="./js/validation.js.js"></script>
 </body>
 </html>

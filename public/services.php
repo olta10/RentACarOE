@@ -61,20 +61,24 @@
                     to ensure a stress-free transport experience.
                 </p>
 
-        <form action="../server/save_order.php" method="POST" class="book-form">
-            <input type="hidden" name="service_name" value="Airport Transfer">
+            <form action="../server/save_car.php" method="POST" class="book-form" enctype="multipart/form-data">
+                <label for="car_brand">Brand:</label>
+                <input type="text" id="car_brand" name="car_brand" placeholder="Enter car brand" required>
 
-            <label for="user_name">Your Name:</label>
-            <input type="text" id="user_name" name="user_name" placeholder="Enter your name" required>
+                <label for="car_model">Model:</label>
+                <input type="text" id="car_model" name="car_model" placeholder="Enter car model" required>
 
-            <label for="quantity">Quantity:</label>
-            <input type="number" id="quantity" name="quantity" value="1" min="1" required>
+                <label for="car_year">Year:</label>
+                <input type="number" id="car_year" name="car_year" placeholder="Enter year" required>
 
-            <label for="preferences">Preferences:</label>
-            <textarea id="preferences" name="preferences" placeholder="Any special requests..."></textarea>
+                <label for="car_price">Price per Day:</label>
+                <input type="number" id="car_price" name="car_price" placeholder="Enter price" required>
 
-            <button type="submit" class="btn-book">Book Now</button>
-        </form>
+                <label for="car_image">Image:</label>
+                <input type="file" id="car_image" name="car_image">
+
+                <button type="submit" class="btn-book">Add Car</button>
+            </form>
 
             </div>
 
@@ -112,6 +116,6 @@
             </div>
         </footer>
 
-    <script src="../assets/js/script.js"></script>
+<script src="./js/validation.js.js"></script>
     </body>
     </html>

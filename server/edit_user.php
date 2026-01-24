@@ -2,20 +2,17 @@
 session_start();
 require 'config.php';
 
-// Sigurohu që është admin
 if (!isset($_SESSION['role']) || strtolower($_SESSION['role']) !== 'admin') {
     die("Access denied.");
 }
 
 $id = intval($_GET['id']);
 
-// Merr të dhënat e përdoruesit
 $stmt = $conn->prepare("SELECT * FROM users WHERE id=?");
 $stmt->execute([$id]);
 $user = $stmt->fetch();
 if (!$user) die("User not found");
 
-// Përditësimi i përdoruesit
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = trim($_POST['name']);
     $email = trim($_POST['email']);

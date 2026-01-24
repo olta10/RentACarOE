@@ -1,31 +1,25 @@
 <?php
-require 'config.php';
+require_once 'classes/Contact.php';
+require_once 'classes/Validator.php';
 
-$name    = $_POST['name'] ?? '';
-$email   = $_POST['email'] ?? '';
-$message = $_POST['message'] ?? '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
-if ($name === '' || $email === '' || $message === '') {
-    echo "<script>
-        alert('Ju lutem plotësoni të gjitha fushat!');
-        window.location.href = '../public/contact.php';
-    </script>";
-    exit;
+    $name = Validator::clean($_POST['name'] ?? '');
+    $email = Validator::clean($_POST['email'] ?? '');
+    $message = Validator::clean($_POST['message'] ?? '');
+
+    if (empty($name) || empty($email) || empty($message)) {
+        header("Location: ../public/contact.php?error=1");
+        exit;
+    }
+
+    if (!Validator::email($email)) {
+        header("Location: ../public/contact.php?error=email");
+        exit;
+    }
+
+    $contact = new Contact();
+    $contact->save($name, $email, $message);
+
+    header("Location: ../public/contact.php?success=1");
 }
-
-$sql = "INSERT INTO contacts (name, email, message, created_at)
-        VALUES (:name, :email, :message, NOW())";
-
-$stmt = $conn->prepare($sql);
-$stmt->execute([
-    ':name'    => $name,
-    ':email'   => $email,
-    ':message' => $message
-]);
-
-echo "<script>
-    alert('Mesazhi u dërgua me sukses!');
-    window.location.href = '../public/contact.php';
-</script>";
-exit;
-?>
