@@ -36,17 +36,33 @@
         </div>
     </nav>
 
-        
-    <section class="hero-full">
-        <img src="images/foto.jpg" class="hero-img" alt="Car">
 
-        <div class="hero-center">
-            <h1>Find Your Perfect Car</h1>
-            <div class="hero-button">
+
+
+    <section class="hero-full">
+        <div class="slider-container">
+            <div class="slide active">
+                <img src="images/mercedes.jpg" alt="Car 1">
+            </div>
+            <div class="slide">
+                <img src="images/audi.jpg" alt="Car 2">
+            </div>
+            <div class="slide">
+                <img src="images/bmw.jpg" alt="Car 3">
+            </div>
+
+            <button class="prev">&#10094;</button>
+            <button class="next">&#10095;</button>
+
+            <div class="hero-center">
+                <h1>Find Your Perfect Car</h1>
                 <a href="./cars.php" class="btn-view-cars">View All Cars</a>
             </div>
         </div>
     </section>
+
+
+  
 
     <footer class="site-footer">
         <div class="footer-container">
@@ -80,7 +96,119 @@
         </div>
     </footer>
 
-<script src="./js/validation.js.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        const slides = document.querySelectorAll('.slide');
+        const prevBtn = document.querySelector('.prev');
+        const nextBtn = document.querySelector('.next');
+        let currentIndex = 0;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            slides[index].classList.add('active');
+        }
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        });
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            showSlide(currentIndex);
+        });
+
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        }, 5000); 
+    });
+    </script>
+
+    <style>
+.slider-container {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    overflow: hidden;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+}
+
+.slide.active {
+    display: block;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    color: white;
+    border: none;
+    font-size: 45px;
+    cursor: pointer;
+    z-index: 10;
+    opacity: 0.7;
+}
+
+.prev {
+    left: 20px;
+}
+
+.next {
+    right: 20px;
+}
+
+.prev:hover,
+.next:hover {
+    opacity: 1;
+}
+
+.hero-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+    z-index: 5;
+}
+
+.hero-center h1 {
+    font-size: 52px;
+    font-weight: bold;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.8);
+}
+
+
+.btn-view-cars {
+    display: inline-block;
+    background: rgba(0,0,0,0.7);
+    color: #fff;
+    padding: 12px 28px;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.btn-view-cars:hover {
+    background: rgba(0,0,0,0.9);
+}
+
+    </style>
 </body>
 </html>
 

@@ -3,7 +3,6 @@ session_start();
 
 require_once '../server/classes/Car.php';
 require_once '../server/classes/User.php';
-require_once '../server/classes/Order.php';
 require_once '../server/classes/Contact.php';
 
 if (!isset($_SESSION['role']) || strtolower($_SESSION['role']) !== 'admin') {
@@ -13,7 +12,6 @@ if (!isset($_SESSION['role']) || strtolower($_SESSION['role']) !== 'admin') {
 
 $carObj     = new Car();
 $userObj    = new User();
-$orderObj   = new Order();
 $contactObj = new Contact();
 
 if (isset($_GET['delete_contact'])) {
@@ -36,7 +34,6 @@ if (isset($_GET['delete_car'])) {
 
 $cars     = $carObj->getAllCars();
 $users    = $userObj->getAllUsers();
-$orders   = $orderObj->getAllOrders();
 $contacts = $contactObj->getAllMessages();
 
 ?>
@@ -67,6 +64,7 @@ $contacts = $contactObj->getAllMessages();
 <body>
     <div class="container">
         <h1>Admin Dashboard</h1>
+        <hr>
         <a href="../public/logout.php" class="logout-btn">Logout</a>
 
         <!-- CONTACT MESSAGES -->
@@ -96,33 +94,6 @@ $contacts = $contactObj->getAllMessages();
             </table>
         <?php else: ?>
             <p style="text-align:center;">No messages found.</p>
-        <?php endif; ?>
-
-        <!-- ORDERS -->
-        <h2>Orders</h2>
-        <?php if ($orders): ?>
-            <table class="table">
-                <tr>
-                    <th>ID</th>
-                    <th>User</th>
-                    <th>Service</th>
-                    <th>Quantity</th>
-                    <th>Preferences</th>
-                    <th>Ordered At</th>
-                </tr>
-                <?php foreach ($orders as $o): ?>
-                    <tr>
-                        <td><?= $o['id'] ?></td>
-                        <td><?= htmlspecialchars($o['user_name'] ?? 'Unknown') ?></td>
-                        <td><?= htmlspecialchars($o['service_name']) ?></td>
-                        <td><?= $o['quantity'] ?></td>
-                        <td><?= htmlspecialchars($o['preferences']) ?></td>
-                        <td><?= $o['created_at'] ?></td>
-                    </tr>
-                <?php endforeach; ?>
-            </table>
-        <?php else: ?>
-            <p style="text-align:center;">No orders found.</p>
         <?php endif; ?>
 
         <!-- USERS LIST -->
