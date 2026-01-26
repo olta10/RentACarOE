@@ -60,7 +60,7 @@ a:hover { text-decoration: underline; }
         <td><?= htmlspecialchars($c['name']) ?></td>
         <td><?= nl2br(htmlspecialchars($c['description'])) ?></td>
         <td><?= htmlspecialchars($c['price']) ?> €</td>
-        <td><?= htmlspecialchars($c['created_by']) ?></td>
+<td><?= htmlspecialchars($car['user_name']) ?></td>
         <td>
             <a href="edit_car.php?id=<?= $c['id'] ?>">Edit</a> | 
             <a href="delete_car.php?id=<?= $c['id'] ?>" onclick="return confirm('Are you sure?')">Delete</a>

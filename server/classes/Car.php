@@ -5,7 +5,7 @@ class Car {
     private $conn;
 
     public function __construct() {
-        $db = new Database();
+        $db = new Database();   
         $this->conn = $db->conn;
     }
 
@@ -20,15 +20,20 @@ class Car {
         return true;
     }
 
-    public function getAllCars() {
-        $result = $this->conn->query(
-            "SELECT cars.*, users.fullname AS user_name
-             FROM cars
-             JOIN users ON cars.created_by = users.id
-             ORDER BY cars.id DESC"
-        );
-        return $result->fetch_all(MYSQLI_ASSOC);
-    }
+public function getAllCars() {
+    $sql = "
+        SELECT 
+            cars.*, 
+            users.fullname AS user_name
+        FROM cars
+        JOIN users ON cars.created_by = users.id
+        ORDER BY cars.id DESC
+    ";
+
+    $result = $this->conn->query($sql);
+    return $result->fetch_all(MYSQLI_ASSOC);
+}
+
 
     public function deleteCar($id) {
         $stmt = $this->conn->prepare("DELETE FROM cars WHERE id = ?");
