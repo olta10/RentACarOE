@@ -6,12 +6,12 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit;
 }
 
-$name = trim($_POST['fullname']);
-$email = trim($_POST['email']);
-$password = $_POST['password'];
-$confirmPassword = $_POST['confirmPassword'];
+$fullname = trim($_POST['fullname'] ?? '');
+$email = trim($_POST['email'] ?? '');
+$password = $_POST['password'] ?? '';
+$confirmPassword = $_POST['confirmPassword'] ?? '';
 
-if ($name === '' || $email === '' || $password === '') {
+if ($fullname === '' || $email === '' || $password === '' || $confirmPassword === '') {
     header("Location: ../public/register.php?error=empty");
     exit;
 }
@@ -21,6 +21,7 @@ if ($password !== $confirmPassword) {
     exit;
 }
 
+// kontrollo a ekziston email
 $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
 $stmt->execute([$email]);
 
@@ -31,11 +32,13 @@ if ($stmt->rowCount() > 0) {
 
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
+// INSERT korrekt sipas databazës
 $stmt = $conn->prepare(
-    "INSERT INTO users (name, email, password, role)
+    "INSERT INTO users (fullname, email, password, role)
      VALUES (?, ?, ?, 'user')"
 );
-$stmt->execute([$name, $email, $hashedPassword]);
+
+$stmt->execute([$fullname, $email, $hashedPassword]);
 
 header("Location: ../public/login.php?success=1");
 exit;

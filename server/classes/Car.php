@@ -1,52 +1,51 @@
 <?php
 require_once 'Database.php';
 
-class Car extends Database {
+class Car {
+    private $conn;
+
+    public function __construct() {
+        $db = new Database();
+        $this->conn = $db->conn;
+    }
 
     public function addCar($brand, $model, $year, $price, $user_id, $image = null) {
-        $year  = intval($year);
-        $price = floatval($price);
-        if($year < 1900 || $year > date("Y")+1) die("Invalid year");
-        if($price <= 0) die("Price must be positive");
-
         $stmt = $this->conn->prepare(
-            "INSERT INTO cars (brand, model, year, price, created_by, image, created_at)
-             VALUES (:brand, :model, :year, :price, :user_id, :image, NOW())"
+            "INSERT INTO cars (brand, model, year, price, created_by, image)
+             VALUES (?, ?, ?, ?, ?, ?)"
         );
-
-        return $stmt->execute([
-            ':brand'   => $brand,
-            ':model'   => $model,
-            ':year'    => $year,
-            ':price'   => $price,
-            ':user_id' => $user_id,
-            ':image'   => $image
-        ]);
+        $stmt->bind_param("ssiiss", $brand, $model, $year, $price, $user_id, $image);
+        $stmt->execute();
+        $stmt->close();
+        return true;
     }
 
     public function getAllCars() {
-        return $this->conn->query(
-            "SELECT cars.*, users.name AS user_name 
-             FROM cars 
-             JOIN users ON cars.created_by = users.id 
+        $result = $this->conn->query(
+            "SELECT cars.*, users.fullname AS user_name
+             FROM cars
+             JOIN users ON cars.created_by = users.id
              ORDER BY cars.id DESC"
-        )->fetchAll();
+        );
+        return $result->fetch_all(MYSQLI_ASSOC);
     }
 
     public function deleteCar($id) {
-        $stmt = $this->conn->prepare("DELETE FROM cars WHERE id = :id");
-        return $stmt->execute([':id' => $id]);
-    }
-
-    public function deleteMedia($id) {
-        $stmt = $this->conn->prepare("UPDATE cars SET media = NULL WHERE id = :id");
-        return $stmt->execute([':id' => $id]);
+        $stmt = $this->conn->prepare("DELETE FROM cars WHERE id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $stmt->close();
+        return true;
     }
 
     public function getCarById($id) {
-        $stmt = $this->conn->prepare("SELECT * FROM cars WHERE id = :id");
-        $stmt->execute([':id' => $id]);
-        return $stmt->fetch();
+        $stmt = $this->conn->prepare("SELECT * FROM cars WHERE id = ?");
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $car = $result->fetch_assoc();
+        $stmt->close();
+        return $car;
     }
 }
 ?>

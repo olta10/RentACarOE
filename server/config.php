@@ -12,9 +12,4 @@ $options = [
     PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
 ];
 
-try {
-    $conn = new PDO($dsn, $user, $pass, $options);
-} catch (PDOException $e) {
-    die("Database connection failed: " . $e->getMessage());
-}
-?>
+$conn = new PDO($dsn, $user, $pass, $options);

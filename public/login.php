@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <h2>Login</h2>
                 <form id="loginForm" method="POST" action="../server/loginVerify.php">
                     <div class="form-group">
-                        <label for="loginUsername">Username or Email</label>
+                        <label for="loginUsername">Full Name or Email</label>
                         <input type="text" id="loginUsername" name="username" placeholder="Enter your username or email" required>
                     </div>
                     <div class="form-group">
@@ -116,6 +116,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </footer>
 
-<script src="./js/validation.js.js"></script>
+<script src="./js/validation.js"></script>
 </body>
 </html>

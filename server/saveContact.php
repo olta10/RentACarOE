@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if (!Validator::email($email)) {
         header("Location: ../public/contact.php?error=email");
-        exit;
+        exit;   
     }
 
     $contact = new Contact();

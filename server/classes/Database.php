@@ -1,23 +1,14 @@
 <?php
 class Database {
-    protected $conn;
+    public $conn;
 
     public function __construct() {
-        $host = 'localhost';
-        $db   = 'rentacaroe';
-        $user = 'root';
-        $pass = '';
-        $charset = 'utf8mb4';
+        require __DIR__ . '/../config.php'; // lidh config.php nga folderi parent
 
-        $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+        $this->conn = new mysqli($host, $user, $pass, $db);
 
-        try {
-            $this->conn = new PDO($dsn, $user, $pass, [
-                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
-            ]);
-        } catch (PDOException $e) {
-            die("Database connection failed: " . $e->getMessage());
+        if ($this->conn->connect_error) {
+            die("Database connection failed: " . $this->conn->connect_error);
         }
     }
 }

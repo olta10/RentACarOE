@@ -2,7 +2,7 @@
 require '../server/config.php';
 
 $sql = "
-    SELECT cars.*, users.name AS user_name
+    SELECT cars.*, users.fullname AS user_name
     FROM cars
     JOIN users ON cars.created_by = users.id
     ORDER BY cars.id DESC
