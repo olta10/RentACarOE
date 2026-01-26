@@ -17,14 +17,17 @@ class User extends Database {
         return $user;
     }
 
-    public function getAllUsers() {
-        $result = $this->conn->query("SELECT id, fullname AS name, email, role, created_at FROM users ORDER BY id DESC");
-        $users = [];
-        while ($row = $result->fetch_assoc()) {
-            $users[] = $row;
-        }
-        return $users;
+public function getAllUsers() {
+    $result = $this->conn->query(
+        "SELECT id, fullname, email, role, created_at FROM users ORDER BY id DESC"
+    );
+
+    $users = [];
+    while ($row = $result->fetch_assoc()) {
+        $users[] = $row;
     }
+    return $users;
+}
 
     public function deleteUser($id) {
         if ($id == 1) return false;

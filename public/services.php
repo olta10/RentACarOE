@@ -44,45 +44,45 @@
 
         <section class="service-details container">
 
-            <div class="main-image">
-                <img src="images/foto.jpg" alt="Airport Transfer Service">
-            </div>
+    <div class="main-image">
+        <img src="images/foto.jpg" alt="Airport Transfer Service">
+        <div class="service-text">
+            <h2>Service Description</h2>
+            <p>
+                Our Airport Transfer service guarantees a comfortable and safe journey to or from the airport.
+                Our drivers are professionals and monitor flights in real-time to ensure punctuality.
+            </p>
 
-            <div class="service-info">
+            <p>
+                Clean, comfortable cars suitable for individuals, families, or groups. Each trip is carefully organized 
+                to ensure a stress-free transport experience.
+            </p>
+        </div>
+    </div>
 
-                <h2>Service Description</h2>
-                <p>
-                    Our Airport Transfer service guarantees a comfortable and safe journey to or from the airport.
-                    Our drivers are professionals and monitor flights in real-time to ensure punctuality.
-                </p>
+    <div class="service-info">
+        <form action="../server/save_car.php" method="POST" class="book-form" enctype="multipart/form-data">
+            <label for="car_brand">Brand:</label>
+            <input type="text" id="car_brand" name="car_brand" placeholder="Enter car brand" required>
 
-                <p>
-                    Clean, comfortable cars suitable for individuals, families, or groups. Each trip is carefully organized 
-                    to ensure a stress-free transport experience.
-                </p>
+            <label for="car_model">Model:</label>
+            <input type="text" id="car_model" name="car_model" placeholder="Enter car model" required>
 
-            <form action="../server/save_car.php" method="POST" class="book-form" enctype="multipart/form-data">
-                <label for="car_brand">Brand:</label>
-                <input type="text" id="car_brand" name="car_brand" placeholder="Enter car brand" required>
+            <label for="car_year">Year:</label>
+            <input type="number" id="car_year" name="car_year" placeholder="Enter year" required>
 
-                <label for="car_model">Model:</label>
-                <input type="text" id="car_model" name="car_model" placeholder="Enter car model" required>
+            <label for="car_price">Price per Day:</label>
+            <input type="number" id="car_price" name="car_price" placeholder="Enter price" required>
 
-                <label for="car_year">Year:</label>
-                <input type="number" id="car_year" name="car_year" placeholder="Enter year" required>
+            <label for="car_image">Image:</label>
+            <input type="file" id="car_image" name="car_image">
 
-                <label for="car_price">Price per Day:</label>
-                <input type="number" id="car_price" name="car_price" placeholder="Enter price" required>
+            <button type="submit" class="btn-book">Add Car</button>
+        </form>
+    </div>
 
-                <label for="car_image">Image:</label>
-                <input type="file" id="car_image" name="car_image">
+</section>
 
-                <button type="submit" class="btn-book">Add Car</button>
-            </form>
-
-            </div>
-
-        </section>
 
         <footer class="site-footer">
             <div class="footer-container">

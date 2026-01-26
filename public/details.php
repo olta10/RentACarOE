@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -9,34 +9,33 @@
     </head>
     <body>
 
-<nav class="navbar">
-    <div class="left-side">
-        <a href="./index.php">
-            <img src="images/carsoe.png" class="logo" alt="Logo">
-        </a>
-    </div>
+    <nav class="navbar">
+        <div class="left-side">
+            <a href="./index.php">
+                <img src="images/carsoe.png" class="logo" alt="Logo">
+            </a>
+        </div>
 
-    <ul class="nav-links" id="nav-links">
-        <li><a href="./index.php">Home</a></li>
-        <li><a href="./aboutus.php">About</a></li>
-        <li><a href="./cars.php">Cars</a></li>
-        <li><a href="./services.php">Services</a></li>
-        <li><a href="./contact.php">Contact</a></li>
-    </ul>
+        <ul class="nav-links" id="nav-links">
+            <li><a href="./index.php">Home</a></li>
+            <li><a href="./aboutus.php">About</a></li>
+            <li><a href="./cars.php">Cars</a></li>
+            <li><a href="./services.php">Services</a></li>
+            <li><a href="./contact.php">Contact</a></li>
+        </ul>
 
-    <div class="right-side">
-        <a href="register.php">
-            <img src="images/usser.png" class="user-logo" alt="User">
-        </a>
-    </div>
+        <div class="right-side">
+            <a href="register.php">
+                <img src="images/usser.png" class="user-logo" alt="User">
+            </a>
+        </div>
 
-    <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-    </div>
-</nav>
-
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
 
     <!-- Mercedes Section -->
     <section class="car-section">
@@ -48,19 +47,23 @@
         <div class="car-grid">
             <div class="car-card">
                 <img src="images/aclass.jpg" alt="Mercedes A-Class">
-                <h3>Mercedes A-Class</h3>
+                <h3>
+                    <a href="./services.php">Mercedes A-Class</a>
+                </h3>
             </div>
             <div class="car-card">
                 <img src="images/cclass.jpg" alt="Mercedes C-Class">
-                <h3>Mercedes C-Class</h3>
+                <h3>
+                    <a href="./services.php">Mercedes C-Class</a>
+                </h3>
             </div>
             <div class="car-card">
                 <img src="images/eclass.jpg" alt="Mercedes E-Class">
-                <h3>Mercedes E-Class</h3>
+                <h3><a href="./services.php">Mercedes E-Class</a></h3>
             </div>
             <div class="car-card">
                 <img src="images/glc.jpg" alt="Mercedes GLC">
-                <h3>Mercedes GLC</h3>
+                <h3><a href="./services.php">Mercedes GLC</a></h3>
             </div>
         </div>
     </section>
@@ -77,19 +80,19 @@
         <div class="car-grid">
             <div class="car-card">
                 <img src="images/a7.jpg" alt="Audi A7">
-                <h3>Audi A7</h3>
+                <h3><a href="./services.php">Audi A7</a></h3>
             </div>
             <div class="car-card">
                 <img src="images/a6.jpg" alt="Audi A6">
-                <h3>Audi A6</h3>
+                <h3><a href="./services.php">Audi A6</a></h3>
             </div>
             <div class="car-card">
                 <img src="images/q7.jpg" alt="Audi Q7">
-                <h3>Audi Q7</h3>
+                <h3><a href="./services.php">Audi Q7</a></h3>
             </div>
             <div class="car-card">
                 <img src="images/q8.jpg" alt="Audi Q8">
-                <h3>Audi Q8</h3>
+                <h3><a href="./services.php">Audi Q8</a></h3>
             </div>
         </div>
     </section>
@@ -106,15 +109,15 @@
         <div class="car-grid">
             <div class="car-card">
                 <img src="images/x6.jpg" alt="BMW X6">
-                <h3>BMW X6</h3>
+                <h3><a href="./services.php">BMW X6</a></h3>
             </div>
             <div class="car-card">
                 <img src="images/m4.jpg" alt="BMW M4">
-                <h3>BMW M4</h3>
+                <h3><a href="./services.php">BMW M4</a></h3>
             </div>
             <div class="car-card">
                 <img src="images/series7.jpg" alt="BMW Series 7">
-                <h3>BMW Series 5</h3>
+                <h3><a href="./services.php">BMW Series 7</a></h3>
             </div>
             <div class="car-card">
                 <img src="images/x1.jpg" alt="BMW X1">

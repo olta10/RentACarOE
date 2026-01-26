@@ -56,60 +56,177 @@
 }
 
 /* ---------------- SLIDER SECTION ---------------- */
+.hero-full {
+    width: 100%;
+    height: 75vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.slider-container {
+    width: 100%;
+    height: 100%;
+     background: transparent;   
+     position: relative;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    display: none;
+}
+
+.slide.active {
+    display: block;
+    z-index: 1;
+}
 
 
-/* ---------------- SERVICES ---------------- */
-.services-section {
-    padding: 60px 20px;
-    background: #f9f9f9;
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 3;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-center h1 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 20px;
+}
+
+.btn-view-cars {
+    display: inline-block;
+    padding: 12px 36px;
+    background: #fff;
+    color: #111;
+    border-radius: 50px;
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.btn-view-cars:hover {
+    background: #f1f1f1;
+    transform: translateY(-3px);
+}
+
+/* Arrows */
+.prev,
+.next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: none;
+    background: rgba(255,255,255,0.9);
+    color: #111;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.prev {
+    left: 15px;
+}
+
+.next {
+    right: 15px;
+}
+
+.prev:hover,
+.next:hover {
+    background: #fff;
+    transform: translateY(-50%) scale(1.15);
+}
+
+/* ---------------- ABOUT US ---------------- */
+.about-section {
+    padding: 125px 20px;
+    background: #f8f9fa;
+}
+
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+.about-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.about-text h2 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.about-text p {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.7;
+    margin-bottom: 15px;
+}
+
+.about-btn {
+    display: inline-block;
+    padding: 12px 35px;
+    background: #6c757d;
+    color: #fff;
+    font-weight: 600;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+.about-btn:hover {
+    background: #495057;
+    transform: translateY(-2px);
+}
+
+/* About Image */
+.about-image {
+    flex: 1;
+    min-width: 300px;
     text-align: center;
 }
 
-.section-title {
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 40px;
-}
-
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    justify-items: center;
-}
-
-.service-card {
-    background: #fff;
-    border-radius: 12px;
-    overflow: hidden;
+.about-image img {
     width: 100%;
-    max-width: 300px;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    transition: 0.3s;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
 }
 
-.service-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    transition: transform 0.3s;
+.about-image img:hover {
+    transform: scale(1.03);
 }
 
-.service-card:hover img {
-    transform: scale(1.05);
-}
-
-.service-card h3 {
-    margin: 15px;
-    font-size: 20px;
-}
-
-.service-card p {
-    margin: 0 15px 15px;
-    font-size: 14px;
-}
-
-/* ---------------- SERVICE DETAILS ---------------- */
+/* ---------------- SERVICE HERO ---------------- */
 .service-hero {
     width: 100%;
     padding: 30px 20px;
@@ -122,7 +239,6 @@
 .service-hero h1 {
     font-size: 42px;
     font-weight: 800;
-    letter-spacing: 1px;
     margin-bottom: 12px;
 }
 
@@ -141,12 +257,14 @@
     align-items: flex-start;
 }
 
-.service-details.container .main-image {
+.main-image {
     flex: 1;
     min-width: 330px;
+    display: flex;
+    flex-direction: column;
 }
 
-.service-details.container .main-image img {
+.main-image img {
     width: 100%;
     max-width: 560px;
     border-radius: 18px;
@@ -155,83 +273,90 @@
     transition: transform 0.4s ease;
 }
 
-.service-details.container .main-image img:hover {
+.main-image img:hover {
     transform: scale(1.03);
 }
 
-.service-details.container .service-info {
-    flex: 1;
-    min-width: 330px;
+.service-text {
+    margin-top: 20px;
 }
 
-.service-details.container .service-info h2 {
+.service-text h2 {
     font-size: 30px;
     margin-bottom: 14px;
     color: #111;
     font-weight: 700;
 }
 
-.service-details.container .service-info p {
+.service-text p {
     font-size: 16px;
     color: #444;
     margin-bottom: 16px;
     line-height: 1.7;
 }
 
-.service-details.container .price-list {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 25px;
+.service-info {
+    flex: 1;
+    min-width: 330px;
 }
 
-.service-details.container .price-list li {
-    background: #fff;
-    border: 1px solid #eee;
-    padding: 15px 20px;
-    border-radius: 14px;
-    font-size: 16px;
-    margin-bottom: 12px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+/* ---------------- BOOK FORM ---------------- */
+.book-form {
     display: flex;
-    justify-content: space-between;
-    font-weight: 500;
+    flex-direction: column;
+    gap: 18px;
+    background: #fff;
+    padding: 35px 30px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    max-width: 500px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.service-details.container .price-list li strong {
-    color: #111;
+.book-form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.25);
 }
 
-.service-details.container .btn-book {
-    display: inline-block;
-    padding: 15px 42px; 
-    color: #111;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 17px;
+.book-form label {
     font-weight: 600;
-    box-shadow: 0 10px 25px rgba(111, 111, 111, 0.4);
-    transition: 0.25s ease;
+    font-size: 15px;
+    color: #333;
 }
 
-.service-details.container .btn-book:hover {
-    transform: translateY(-4px) scale(1.03);
+.book-form input[type="text"],
+.book-form input[type="number"],
+.book-form input[type="file"] {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.book-form input:focus {
+    outline: none;
+    border-color: #495057;
+    box-shadow: 0 0 8px rgba(73,80,87,0.3);
+}
+
+.book-form button {
+    padding: 15px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #495057, #6c757d);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.book-form button:hover {
+    transform: translateY(-2px) scale(1.02);
     background: linear-gradient(135deg, #6c757d, #495057);
 }
-
-/* ---------------- BOOK NOW BUTTON ---------------- */
-.btn-book {
-    display: inline-block;
-    padding: 15px 42px;
-    background: linear-gradient(135deg, #495057, #6c757d);
-    color: #111;
-    border-radius: 50px;
-    text-decoration: none;
-    font-size: 17px;
-    font-weight: 600;
-    box-shadow: 0 10px 25px rgba(111, 111, 111, 0.4);
-    transition: 0.25s ease;
-}
-
 
 /* ---------------- GALLERY ---------------- */
 .gallery {
@@ -349,6 +474,12 @@
     color: red;
     margin-bottom: 12px;
     font-weight: 700;
+}
+
+.car-card h3 a {
+    text-decoration: none;   /* heq vijën poshtë */
+    color: #000;             /* ngjyrë e zezë */
+    display: inline-block;
 }
 
 .car-content p {
@@ -521,6 +652,110 @@ button:hover {
 
 }
 
+/* ---------------- CONTACT ---------------- */
+.contact-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f0f0f0, #e9ecef);
+    min-height: 70vh;
+}
+
+.contact-container {
+    background: #fff;
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+}
+
+.contact-container h1 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #222;
+    margin-bottom: 30px;
+}
+
+.contact-container p {
+    font-size: 14px;
+    margin-bottom: 15px;
+    font-weight: 500;
+}
+
+.contact-container p.success {
+    color: #28a745;
+}
+
+.contact-container p.error {
+    color: #dc3545;
+}
+
+/* Form */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 14px 18px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: none;
+    border-color: #495057;
+    box-shadow: 0 0 8px rgba(73,80,87,0.3);
+}
+
+.contact-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.contact-form button {
+    padding: 15px;
+    border: none;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #495057, #6c757d);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.contact-form button:hover {
+    transform: translateY(-2px) scale(1.02);
+    background: linear-gradient(135deg, #6c757d, #495057);
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+    .contact-container {
+        padding: 35px 20px;
+    }
+    .contact-container h1 {
+        font-size: 28px;
+    }
+}
+
+
 /* ---------------- FOOTER ---------------- */
 .site-footer {
     background: #343a40 ;
@@ -578,390 +813,3 @@ button:hover {
     color: #888;
     font-size: 14px;
 }
-
-/* ---------------- MOBILE (<=767px) ---------------- */
-@media (max-width: 767px) {
-    /* Navbar */
-    .navbar {
-        flex-direction: row;
-        justify-content: space-between;
-        padding: 10px 20px;
-    }
-    .nav-links {
-        position: absolute;
-        top: 60px;
-        left: 0;
-        width: 100%;
-        background: #fff;
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px 0;
-        text-align: center;
-        border-top: 1px solid #ddd;
-        transform: translateY(-500px);
-        transition: transform 0.3s ease;
-    }
-    .nav-links.show {
-        transform: translateY(0);
-    }
-    .nav-links a {
-        font-size: 16px;
-    }
-    .hamburger {
-        display: flex;
-    }
-
-    /* Hero */
-    .hero-full {
-        height: 60vh;
-    }
-    .hero-center h1 {
-        font-size: 24px;
-        margin-bottom: 15px;
-    }
-    .btn-view-cars {
-        padding: 12px 28px;
-        font-size: 14px;
-    }
-
-    /* About Us */
-    .about-container {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
-    .about-text h2 {
-        font-size: 22px;
-    }
-    .about-text p {
-        font-size: 14px;
-    }
-    .about-btn {
-        padding: 10px 20px;
-        font-size: 14px;
-    }
-    .about-image img {
-        max-width: 90%;
-    }
-
-    /* Services */
-    .services-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-    .service-card h3 {
-        font-size: 18px;
-    }
-    .service-card p {
-        font-size: 13px;
-    }
-
-    /* Cars */
-    .car-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-        justify-items: center;
-    }
-    .car-card {
-        width: 90%;
-    }
-    .car-card img {
-        height: auto;
-        max-height: 200px;
-    }
-    .car-image img {
-        height: 180px;
-    }
-    .car-content h3 {
-        font-size: 20px;
-    }
-    .car-content p {
-        font-size: 14px;
-    }
-    .car-content .btn-details {
-        padding: 8px 20px;
-        font-size: 13px;
-    }
-
-    /* Gallery */
-    .gallery-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    .gallery-grid img {
-        height: 160px;
-    }
-
-    /* Footer */
-    .footer-container {
-        flex-direction: column;
-        gap: 20px;
-        text-align: center;
-    }
-}
-
-/* ---------------- TABLET SMALL (768px - 990px) ---------------- */
-@media (min-width: 768px) and (max-width: 990px) {
-    /* Navbar */
-    .navbar {
-        padding: 10px 30px;
-    }
-    .nav-links {
-        gap: 15px;
-    }
-    .logo {
-        width: 45px;
-    }
-
-    /* Hero */
-    .hero-full {
-        height: 70vh;
-    }
-    .hero-center h1 {
-        font-size: 28px;
-    }
-    .btn-view-cars {
-        padding: 13px 30px;
-        font-size: 15px;
-    }
-
-    /* About Us */
-    .about-container {
-        flex-direction: row;
-        gap: 30px;
-    }
-    .about-text h2 {
-        font-size: 24px;
-    }
-    .about-text p {
-        font-size: 15px;
-    }
-
-    /* Services */
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-    }
-
-    /* Cars */
-    .car-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-    }
-    .car-card {
-        width: 100%;
-    }
-    .car-card img {
-        height: 200px;
-    }
-
-    /* Gallery */
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-}
-
-/* ---------------- TABLET BIG (991px - 1040px) ---------------- */
-@media (min-width: 991px) and (max-width: 1040px) {
-    /* Navbar */
-    .navbar {
-        padding: 10px 35px;
-    }
-    .nav-links a {
-        font-size: 14px;
-    }
-
-    /* Hero */
-    .hero-full {
-        height: 75vh;
-    }
-    .hero-center h1 {
-        font-size: 30px;
-    }
-    .btn-view-cars {
-        padding: 13px 32px;
-        font-size: 15px;
-    }
-
-    /* About Us */
-    .about-container {
-        gap: 35px;
-    }
-    .about-text h2 {
-        font-size: 26px;
-    }
-
-    /* Services */
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-    }
-
-    /* Cars */
-    .car-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 35px;
-    }
-    .car-card img {
-        height: 200px;
-    }
-
-    /* Gallery */
-    .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-    }
-}
-
-
-/* ---------------- CONTACT SECTION ---------------- */
-.contact-section {
-    padding: 60px 20px;
-    background: #f9f9f9;
-    min-height: 20vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.contact-container {
-    background: #fff;
-    padding: 50px 30px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    max-width: 600px;
-    width: 100%;
-    text-align: center;
-}
-.contact-container h1 {
-    font-size: 32px;
-    margin-bottom: 25px;
-    color: #222;
-}
-.contact-container p {
-    font-size: 15px;
-    margin-bottom: 20px;
-}
-.contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-.contact-form input,
-.contact-form textarea {
-    padding: 12px 15px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
-    font-size: 15px;
-    transition: 0.3s;
-    width: 100%;
-}
-.contact-form input:focus,
-.contact-form textarea:focus {
-    outline: none;
-    border-color: #6c757d;
-    box-shadow: 0 0 5px rgba(108,117,125,0.5);
-}
-.contact-form textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-.contact-form button {
-    padding: 14px;
-    background: #6c757d;
-    color: #fff;
-    border: none;
-    border-radius: 50px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-.contact-form button:hover {
-    background: #495057;
-}
-@media(max-width: 700px){
-    .contact-container {
-        padding: 30px 20px;
-    }
-}
-
-
-/* ---------------- BOOK FORM ---------------- */
-.book-form {
-    background: #f8f9fa;
-    padding: 30px 25px;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
-    max-width: 500px;
-    margin-top: 30px;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-.book-form label {
-    font-weight: 600;
-    color: #333;
-    margin-bottom: 5px;
-    font-size: 14px;
-}
-
-.book-form input,
-.book-form textarea {
-    padding: 12px 15px;
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    font-size: 15px;
-    transition: 0.3s;
-    width: 100%;
-    font-family: Arial, sans-serif;
-}
-
-.book-form input:focus,
-.book-form textarea:focus {
-    outline: none;
-    border-color: #6c757d;
-    box-shadow: 0 0 5px rgba(108,117,125,0.5);
-}
-
-.book-form textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-.book-form .btn-book {
-    padding: 14px;
-    background: #6c757d;
-    color: #fff;
-    border: none;
-    border-radius: 50px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.book-form .btn-book:hover {
-    background: #495057;
-    transform: translateY(-2px);
-}
-
-/* MOBILE RESPONSIVE */
-@media(max-width: 600px){
-    .book-form {
-        padding: 25px 20px;
-    }
-}
-
-
-
-
-
-
-
-
-
-
-
-

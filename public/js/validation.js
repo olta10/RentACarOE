@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
     setInterval(() => {
         currentIndex = (currentIndex + 1) % slides.length;
         showSlide(currentIndex);
-    }, 5000); // ndryshon çdo 5 sekonda
+    }, 5000);
 });
 
 
