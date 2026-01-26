@@ -758,8 +758,8 @@ button:hover {
 
 /* ---------------- FOOTER ---------------- */
 .site-footer {
-    background: #343a40 ;
-    color: #ccc;
+    background: #905454 ;
+    color: #0e0707;
     padding: 40px 20px 20px 20px;
 }
 
@@ -774,7 +774,7 @@ button:hover {
 
 .footer-col h3,
 .footer-col h4 {
-    color: #6c757d;
+    color: #381f1f;
     margin-bottom: 12px;
     font-size: 18px;
 }
@@ -794,14 +794,14 @@ button:hover {
 }
 
 .footer-col ul li a {
-    color: #ccc;
+    color: #ffffff;
     font-size: 14px;
     text-decoration: none;
     transition: color 0.3s;
 }
 
 .footer-col ul li a:hover {
-    color: #495057;
+    color: #ffffff;
 }
 
 .footer-bottom {
@@ -810,6 +810,6 @@ button:hover {
 }
 
 .footer-bottom p {
-    color: #888;
+    color: #ffffff;
     font-size: 14px;
 }
