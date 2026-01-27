@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-
 // --- Login Validation ---
 const loginForm = document.getElementById('loginForm');
 
@@ -43,6 +42,7 @@ if (loginForm) {
         alert("Login successful!");
     });
 }
+
 
 // --- Register Validation ---
 const registerForm = document.getElementById('registerForm');
@@ -96,20 +96,26 @@ document.addEventListener('DOMContentLoaded', () => {
         slides[index].classList.add('active');
     }
 
-    nextBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % slides.length;
-        showSlide(currentIndex);
-    });
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        });
+    }
 
-    prevBtn.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-        showSlide(currentIndex);
-    });
+    if (prevBtn) {
+        prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            showSlide(currentIndex);
+        });
+    }
 
-    setInterval(() => {
-        currentIndex = (currentIndex + 1) % slides.length;
-        showSlide(currentIndex);
-    }, 5000);
+    if (slides.length > 0) {
+        showSlide(currentIndex); 
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+        }, 5000);
+    }
 });
-
 
