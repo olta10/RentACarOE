@@ -35,21 +35,30 @@ $cars     = $carObj->getAllCars();
 $users    = $userObj->getAllUsers();
 $contacts = $contactObj->getAllMessages();
 
-function prioritize_first($array) {
-    $sorted = [];
-    foreach ($array as $key => $item) {
-        if ($item['id'] == 1) {
-            $sorted[] = $item;
-            unset($array[$key]);
-            break;
-        }
+$admins = [];
+$others = [];
+
+foreach ($users as $u) {
+    if (strtolower($u['role']) === 'admin') {
+        $admins[] = $u;
+    } else {
+        $others[] = $u;
     }
-    return array_merge($sorted, $array);
 }
 
-$users_sorted    = prioritize_first($users);
-$contacts_sorted = prioritize_first($contacts);
-$cars_sorted     = prioritize_first($cars);
+usort($others, function($a, $b) {
+    return $a['id'] <=> $b['id'];
+});
+
+$users_sorted = array_merge($admins, $others);
+
+usort($contacts, function($a, $b) {
+    return strtotime($b['created_at']) <=> strtotime($a['created_at']);
+});
+
+usort($cars, function($a, $b) {
+    return $b['id'] <=> $a['id'];
+});
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -83,7 +92,7 @@ $cars_sorted     = prioritize_first($cars);
 
 <!-- CONTACT MESSAGES -->
 <h2>Contact Messages</h2>
-<?php if (!empty($contacts_sorted)): ?>
+<?php if (!empty($contacts)): ?>
 <table class="table">
     <tr>
         <th>#</th>
@@ -93,7 +102,7 @@ $cars_sorted     = prioritize_first($cars);
         <th>Sent At</th>
         <th>Action</th>
     </tr>
-    <?php foreach ($contacts_sorted as $index => $c): ?>
+    <?php foreach ($contacts as $index => $c): ?>
         <tr>
             <td><?= $index + 1 ?></td>
             <td><?= htmlspecialchars($c['name'] ?? '') ?></td>
@@ -126,11 +135,7 @@ $cars_sorted     = prioritize_first($cars);
 <?php foreach ($users_sorted as $index => $u): ?>
 <tr>
     <td><?= $index + 1 ?></td>
-    <td>
-        <?php 
-            echo htmlspecialchars($u['fullname'] ?? $u['fullname'] ?? ''); 
-        ?>
-    </td>
+    <td><?= htmlspecialchars($u['fullname'] ?? '') ?></td>
     <td><?= htmlspecialchars($u['email'] ?? '') ?></td>
     <td class="<?= strtolower($u['role'] ?? '')==='admin'?'admin-role':'' ?>"><?= htmlspecialchars($u['role'] ?? '') ?></td>
     <td>
@@ -148,10 +153,9 @@ $cars_sorted     = prioritize_first($cars);
 </p>
 <?php endif; ?>
 
-
 <!-- CARS LIST -->
 <h2>Cars List</h2>
-<?php if (!empty($cars_sorted)): ?>
+<?php if (!empty($cars)): ?>
 <table class="table">
 <tr>
     <th>#</th>
@@ -162,7 +166,7 @@ $cars_sorted     = prioritize_first($cars);
     <th>Image</th>
     <th>Actions</th>
 </tr>
-<?php foreach ($cars_sorted as $index => $car): ?>
+<?php foreach ($cars as $index => $car): ?>
 <tr>
     <td><?= $index + 1 ?></td>
     <td><?= htmlspecialchars($car['brand'] ?? '') ?></td>

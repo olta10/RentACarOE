@@ -3,7 +3,7 @@ class Database {
     public $conn;
 
     public function __construct() {
-        require __DIR__ . '/../config.php'; // lidh config.php nga folderi parent
+        require __DIR__ . '/../config.php'; 
 
         $this->conn = new mysqli($host, $user, $pass, $db);
 

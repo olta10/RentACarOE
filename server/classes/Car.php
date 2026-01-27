@@ -34,7 +34,6 @@ public function getAllCars() {
     return $result->fetch_all(MYSQLI_ASSOC);
 }
 
-
     public function deleteCar($id) {
         $stmt = $this->conn->prepare("DELETE FROM cars WHERE id = ?");
         $stmt->bind_param("i", $id);

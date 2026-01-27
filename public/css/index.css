@@ -5,7 +5,7 @@
     font-family: Arial, sans-serif;
 }
 
-/* ---------------- NAVBAR ---------------- */
+/*  NAVBAR  */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -55,7 +55,7 @@
     border-radius: 2px;
 }
 
-/* ---------------- SLIDER SECTION ---------------- */
+/*  SLIDER SECTION  */
 .hero-full {
     width: 100%;
     height: 75vh;
@@ -156,7 +156,7 @@
     transform: translateY(-50%) scale(1.15);
 }
 
-/* ---------------- ABOUT US ---------------- */
+/*  ABOUT US  */
 .about-section {
     padding: 125px 20px;
     background: #f8f9fa;
@@ -207,7 +207,6 @@
     transform: translateY(-2px);
 }
 
-/* About Image */
 .about-image {
     flex: 1;
     min-width: 300px;
@@ -226,7 +225,7 @@
     transform: scale(1.03);
 }
 
-/* ---------------- SERVICE HERO ---------------- */
+/*  SERVICE HERO  */
 .service-hero {
     width: 100%;
     padding: 30px 20px;
@@ -300,7 +299,7 @@
     min-width: 330px;
 }
 
-/* ---------------- BOOK FORM ---------------- */
+/*  BOOK FORM  */
 .book-form {
     display: flex;
     flex-direction: column;
@@ -358,7 +357,7 @@
     background: linear-gradient(135deg, #6c757d, #495057);
 }
 
-/* ---------------- GALLERY ---------------- */
+/*  GALLERY  */
 .gallery {
     max-width: 1300px;
     margin: 40px auto 80px;
@@ -393,7 +392,7 @@
     box-shadow: 0 15px 35px rgba(0,0,0,0.22);
 }
 
-/* ---------------- CARS SECTION ---------------- */
+/*  CARS SECTION  */
 .cars-section {
     padding: 80px 20px;
     text-align: center;
@@ -477,8 +476,8 @@
 }
 
 .car-card h3 a {
-    text-decoration: none;   /* heq vijën poshtë */
-    color: #000;             /* ngjyrë e zezë */
+    text-decoration: none;   
+    color: #000;             
     display: inline-block;
 }
 
@@ -489,7 +488,7 @@
     margin-bottom: 20px;
 }
 
-/* ---------------- DETAILS / CARS ---------------- */
+/*  DETAILS / CARS  */
 .car-section {
   padding: 50px 20px 40px 20px;
   background: #e9ecef;
@@ -557,7 +556,7 @@
   transform: scale(1.05);
 }
 
-/* ---------------- LOG IN ---------------- */
+/*  LOG IN  */
 .auth-section {
     display: flex;
     justify-content: center; 
@@ -652,7 +651,7 @@ button:hover {
 
 }
 
-/* ---------------- CONTACT ---------------- */
+/*  CONTACT  */
 .contact-section {
     display: flex;
     justify-content: center;
@@ -699,7 +698,6 @@ button:hover {
     color: #dc3545;
 }
 
-/* Form */
 .contact-form {
     display: flex;
     flex-direction: column;
@@ -745,7 +743,7 @@ button:hover {
     background: linear-gradient(135deg, #6c757d, #495057);
 }
 
-/* ---------------- FOOTER ---------------- */
+/*  FOOTER  */
 .site-footer {
     background: #905454 ;
     color: #0e0707;

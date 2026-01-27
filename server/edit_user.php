@@ -21,7 +21,6 @@ if (!$user) {
 
 $success_msg = '';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Merr vlerat nga forma POST
     $fullname  = trim($_POST['fullname'] ?? '');
     $email     = trim($_POST['email'] ?? '');
     $role      = $_POST['role'] ?? '';

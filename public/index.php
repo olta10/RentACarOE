@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<!-- ================= NAVBAR ================= -->
+<!-- NAVBAR  -->
 <nav class="navbar">
     <div class="left-side">
         <a href="./index.php">
@@ -38,7 +38,7 @@
     </div>
 </nav>
 
-<!-- ================= HERO / SLIDER ================= -->
+<!--  HERO / SLIDER  -->
 <section class="hero-full">
     <div class="slider-container">
         <div class="slide active">
@@ -61,7 +61,7 @@
     </div>
 </section>
 
-<!-- ================= FOOTER ================= -->
+<!--  FOOTER  -->
 <footer class="site-footer">
     <div class="footer-container">
         <div class="footer-col">

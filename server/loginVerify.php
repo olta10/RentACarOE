@@ -34,7 +34,6 @@ if (!$user) {
 $_SESSION['user_id'] = $user['id'];
 $_SESSION['role'] = $user['role'];
 
-// ✅ REDIRECT SIPAS ROLIT
 if (strtolower($user['role']) === 'admin') {
     header("Location: admin_dashboard.php");
 } else {

@@ -21,7 +21,6 @@ if ($password !== $confirmPassword) {
     exit;
 }
 
-// kontrollo a ekziston email
 $stmt = $conn->prepare("SELECT id FROM users WHERE email = ?");
 $stmt->execute([$email]);
 
@@ -32,7 +31,6 @@ if ($stmt->rowCount() > 0) {
 
 $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
 
-// INSERT korrekt sipas databazës
 $stmt = $conn->prepare(
     "INSERT INTO users (fullname, email, password, role)
      VALUES (?, ?, ?, 'user')"
