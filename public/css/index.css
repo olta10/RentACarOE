@@ -745,8 +745,8 @@ button:hover {
 
 /*  FOOTER  */
 .site-footer {
-    background: #905454 ;
-    color: #0e0707;
+    background: #8b8b8b ;
+    color: #353535;
     padding: 40px 20px 20px 20px;
 }
 
@@ -761,7 +761,7 @@ button:hover {
 
 .footer-col h3,
 .footer-col h4 {
-    color: #381f1f;
+    color: #ffffff;
     margin-bottom: 12px;
     font-size: 18px;
 }
@@ -781,7 +781,7 @@ button:hover {
 }
 
 .footer-col ul li a {
-    color: #ffffff;
+    color: #000000;
     font-size: 14px;
     text-decoration: none;
     transition: color 0.3s;
